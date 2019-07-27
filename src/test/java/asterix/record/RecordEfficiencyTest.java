@@ -1,11 +1,9 @@
-package asterix.config;
-
-import asterix.record.Record;
+package asterix.record;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AsterixConfTest {
+public class RecordEfficiencyTest {
 
     private static final int DEFAULT_ROUND = (1 << 30);
 

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.asterix.common.config.GlobalConfig;
 import org.apache.commons.httpclient.DefaultHttpMethodRetryHandler;
 import org.apache.commons.httpclient.HostConfiguration;
@@ -17,7 +18,7 @@ import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.params.HttpClientParams;
 import org.apache.commons.httpclient.params.HttpMethodParams;
 import org.apache.logging.log4j.Level;
-import org.json.JSONObject;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * @author michael
@@ -56,7 +57,7 @@ public class AsterixConn {
 
     public String[] handleError(HttpMethod method) throws Exception {
         String errorBody = method.getResponseBodyAsString();
-        JSONObject result = new JSONObject(errorBody);
+        JSONObject result = JSON.parseObject(errorBody);
 
         String[] errors = { result.getJSONArray("error-code").getString(0), result.getString("summary"),
                 result.getString("stacktrace") };

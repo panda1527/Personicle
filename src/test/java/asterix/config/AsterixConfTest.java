@@ -1,7 +1,5 @@
 package asterix.config;
 
-import asterix.record.Record;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;

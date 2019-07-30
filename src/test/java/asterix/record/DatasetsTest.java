@@ -1,7 +1,6 @@
 package asterix.record;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 
 import java.util.ArrayList;
 import java.util.HashMap;

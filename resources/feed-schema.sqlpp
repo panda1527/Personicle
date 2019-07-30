@@ -1,0 +1,18 @@
+drop dataverse feeds if exists;
+
+create dataverse feeds;
+use feeds;
+
+create type TwitterUser as closed {
+    screen_name: string,
+    lang: string,
+    friends_count: int32,
+    statuses_count: int32
+};
+
+create type Tweet as open {
+    id: int64,
+    user: TwitterUser
+};
+
+create dataset Tweets (Tweet) primary key id;

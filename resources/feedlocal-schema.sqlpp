@@ -1,0 +1,18 @@
+use feeds;
+
+create type TestDataType as open {
+   screenName: string
+};
+
+create dataset TestDataset(TestDataType) primary key screenName;
+
+create feed TestFileFeed with {
+  "adapter-name": "localfs",
+  "type-name": "TestDataType",
+  "path": "HOSTNAME://LOCAL_FILE_PATH",
+  "format": "adm"
+};
+
+connect feed TestFileFeed to dataset TestDataset;
+
+start feed TestFileFeed;

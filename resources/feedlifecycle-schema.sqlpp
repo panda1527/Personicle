@@ -1,0 +1,20 @@
+use feeds;
+
+connect feed TwitterFeed to dataset Tweets;
+
+start feed TwitterFeed;
+
+
+use feeds;
+
+select * from Tweets limit 10;
+
+
+use feeds;
+
+stop feed TwitterFeed;
+
+
+use feeds;
+
+disconnect feed TwitterFeed from dataset Tweets;

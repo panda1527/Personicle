@@ -1,0 +1,12 @@
+use feeds;
+
+create feed TwitterFeed with {
+  "adapter-name": "push_twitter",
+  "type-name": "Tweet",
+  "format": "twitter-status",
+  "consumer.key": "************",
+  "consumer.secret": "************",
+  "access.token": "**********",
+  "access.token.secret": "*************",
+  "keywords": "news"
+};

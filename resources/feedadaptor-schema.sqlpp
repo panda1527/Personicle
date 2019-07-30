@@ -1,0 +1,22 @@
+drop dataverse feeds if exists;
+create dataverse feeds;
+use feeds;
+
+create type TestDataType as open {
+   screenName: string
+};
+
+create dataset TestDataset(TestDataType) primary key screenName;
+
+create feed TestSocketFeed with {
+  "adapter-name": "socket_adapter",
+  "sockets": "127.0.0.1:10001",
+  "address-type": "IP",
+  "type-name": "TestDataType",
+  "format": "adm"
+};
+
+connect feed TestSocketFeed to dataset TestDataset;
+
+use feeds;
+start feed TestSocketFeed;

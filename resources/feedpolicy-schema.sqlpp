@@ -1,0 +1,3 @@
+use feeds;
+
+connect feed TwitterFeed to dataset Tweets using policy Basic;

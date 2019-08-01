@@ -1,0 +1,141 @@
+[
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac419",
+      "participant": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-07-10T00:14:00.000Z",
+      "end_at": "2019-07-10T00:15:00.000Z",
+      "name": "Working out",
+      "level": 0,
+      "observations": [
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ]
+    }
+  },
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac41b",
+      "participant": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-07-10T00:09:00.000Z",
+      "end_at": "2019-07-10T00:10:00.000Z",
+      "name": "walking",
+      "observations": [
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ],
+      "intensity": 1
+    }
+  },
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac41c",
+      "participant": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-07-10T00:09:00.000Z",
+      "end_at": "2019-07-10T00:10:00.000Z",
+      "name": "being monitored by Personicle",
+      "observations": [
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ],
+      "category": "Lifestyle",
+      "applicationName": "Personicle",
+      "packageId": "jordan.personicle"
+    }
+  },
+  {
+    "events": {
+      "eventId": "e95f1c31-dbc9-5a85-5bd0-54b8c1c5fcf5",
+      "participant": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "start_at": "2019-07-10T00:00:00.808Z",
+      "end_at": "2019-07-10T00:50:00.808Z",
+      "name": "Long reflective walk at midnight.",
+      "observations": [
+        "653d2002-7aa3-bd9e-7360-36a19f3c891e",
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ]
+    }
+  },
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac416",
+      "participant": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "start_at": "2019-07-10T00:17:00.101Z",
+      "end_at": "2019-07-10T00:18:00.101Z",
+      "name": "Using WiFi to watch how vanilla is made.",
+      "observations": [
+        "653d2002-7aa3-bd9e-7360-36a19f3c891e",
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ],
+      "ssid": "Starbuck's WiFi"
+    }
+  },
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac417",
+      "participant": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-07-10T00:17:00.101Z",
+      "end_at": "2019-07-10T00:18:00.101Z",
+      "name": "Study at Starbucks",
+      "observations": [
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ],
+      "location": "Starbucks"
+    }
+  },
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac418",
+      "participant": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-07-10T00:12:00.000Z",
+      "end_at": "2019-07-10T00:13:00.000Z",
+      "name": "Biking for funsies",
+      "observations": [
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ],
+      "intensity": "Starbucks"
+    }
+  },
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac41a",
+      "participant": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-07-10T00:08:00.000Z",
+      "end_at": "2019-07-10T00:09:00.000Z",
+      "name": "running",
+      "observations": [
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ],
+      "intensity": 1
+    }
+  },
+  {
+    "events": {
+      "eventId": "2930ae62-93e3-dc98-10ab-9703e48ac41d",
+      "participant": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-05-10T00:23:00.000Z",
+      "end_at": "2019-05-11T00:08:00.000Z",
+      "name": "sleep time",
+      "observations": [
+        "923d2002-4aa3-bd9e-9c68-7b81968a1733"
+      ],
+      "asleep": 0,
+      "awake": 0,
+      "deep": 107,
+      "efficiency": 92,
+      "light": 224,
+      "minutesAsSleep": 447,
+      "rem": 143,
+      "restless": 0,
+      "wake": 0
+    }
+  }
+]
+
+{
+  "observations": {
+    "observationId": "653d2002-7aa3-bd9e-7360-36a19f3c891e",
+    "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+    "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+    "label": "Your custom observation's name here...",
+    "start_at": "2019-07-09T22:37:55.496Z",
+    "end_at": "2019-07-09T22:38:32.123Z"
+  }
+}

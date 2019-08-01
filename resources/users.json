@@ -1,0 +1,55 @@
+[
+  {
+    "users": {
+      "userId": "24363533-6432-3030-322d-313461332d62",
+      "name": "Mayca Rey"
+    }
+  },
+  {
+    "users": {
+      "userId": "2930ae62-08e3-dc98-0df0-66fe8fab1baa",
+      "name": "Mike Correi",
+      "dateOfBirth": "2000-07-09",
+      "addresses": [
+        {
+          "category": "home",
+          "address": "43 Knottellin Ln.",
+          "city": "Irvine",
+          "state": "Calfornia",
+          "postalCode": "92697"
+        }
+      ],
+      "phones": [
+        {
+          "category": "work",
+          "phone": "9498245011"
+        }
+      ],
+      "emails": [
+        {
+          "category": "home",
+          "email": "e@example.com"
+        },
+        {
+          "email": "bb@example.com"
+        }
+      ]
+    }
+  },
+  {
+    "users": {
+      "userId": "24653935-6631-6333-312d-316163392d35",
+      "name": "Mai Carrie",
+      "dateOfBirth": "1969-01-05",
+      "emails": [
+        {
+          "category": "home",
+          "email": "e@example.com"
+        },
+        {
+          "email": "bb@example.com"
+        }
+      ]
+    }
+  }
+]

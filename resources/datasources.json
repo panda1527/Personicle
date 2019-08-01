@@ -1,0 +1,33 @@
+[
+  {
+    "datasources": {
+      "dataSourceId": "2930ae62-5fe3-dc98-0eff-1b49070150b8",
+      "owner": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "label": "My custom data source"
+    }
+  },
+  {
+    "datasources": {
+      "dataSourceId": "2930ae62-5fe3-dc98-0eff-1b49070150bb",
+      "owner": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "label": "Google Calendar API",
+      "rootUrl": "https://www.googleapis.com/calendar/v3"
+    }
+  },
+  {
+    "datasources": {
+      "dataSourceId": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "owner": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "label": "Android Smartphone",
+      "personicleHost": "Android Pie/Personicle v1.3.23"
+    }
+  },
+  {
+    "datasources": {
+      "dataSourceId": "2930ae62-5fe3-dc98-0eff-1b49070150b9",
+      "owner": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "label": "Mai",
+      "loggerId": "e95f1c31-1ac9-5a85-2968-78a5467a49fb"
+    }
+  }
+]

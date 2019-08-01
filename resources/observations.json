@@ -1,0 +1,87 @@
+[
+  {
+    "observations": {
+      "observationId": "2930ae62-d4e3-dc98-0fca-8bf6890e0af2",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "start_at": "2019-07-10T00:00:00.808Z",
+      "uuid": "923d2002-4aa3-bd9e-9c68-7b81968a1733",
+      "ambientLight": 400.34
+    }
+  },
+  {
+    "observations": {
+      "observationId": "2930ae62-d4e3-dc98-0fca-8bf6890e0af3",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "e95f1c31-1ac9-5a85-2968-78a5467a49fb",
+      "start_at": "2019-07-10T00:00:00.808Z",
+      "uuid": "653d2002-4aa3-bd9e-9c68-7b81968a1733",
+      "coordinates": [
+        33.640495,
+        -117.844296
+      ],
+      "pointOfInterest": "UC Irvine"
+    }
+  },
+  {
+    "observations": {
+      "observationId": "2930ae62-d4e3-dc98-0fca-8bf6890e0af4",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "start_at": "2019-07-09T23:41:29.152Z",
+      "stepCount": 1123
+    }
+  },
+  {
+    "observations": {
+      "observationId": "2930ae62-d4e3-dc98-0fca-8bf6890e0af5",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "start_at": "2019-07-03T23:41:29.152Z",
+      "end_at": "2019-07-03T23:46:29.152Z",
+      "mediaPlay": 3
+    }
+  },
+  {
+    "observations": {
+      "observationId": "2930ae62-d4e3-dc98-0fca-8bf6890e0af7",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "start_at": "2019-07-03T23:41:29.054Z",
+      "end_at": "2019-07-01T23:50:21.432Z",
+      "heartRate": 65,
+      "restingHeartRate": 60
+    }
+  },
+  {
+    "observations": {
+      "observationId": "2930ae62-d4e3-dc98-0fca-8bf6890e0af1",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "label": "did a jumping jack",
+      "start_at": "2019-06-09T08:37:55.000Z",
+      "activityLevel": 0.6
+    }
+  },
+  {
+    "observations": {
+      "observationId": "2930ae62-d4e3-dc98-0fca-8bf6890e0af6",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "start_at": "2019-07-03T23:41:29.152Z",
+      "end_at": "2019-07-03T23:46:29.152Z",
+      "phoneOnCount": 4,
+      "phoneOffCount": 4
+    }
+  },
+  {
+    "observations": {
+      "observationId": "653d2002-7aa3-bd9e-7360-36a19f3c891e",
+      "dataSource": "e95f1c31-bac9-5a85-514f-d5723506eb13",
+      "about": "653d2002-14a3-bd9e-7970-4aa9689b6502",
+      "label": "Your custom observation's name here...",
+      "start_at": "2019-07-09T22:37:55.496Z",
+      "end_at": "2019-07-09T22:38:32.123Z"
+    }
+  }
+]

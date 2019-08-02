@@ -7,7 +7,7 @@ import java.util.UUID;
 import com.alibaba.fastjson.JSONObject;
 
 public class Users {
-    private final UUID id;
+    private UUID userId;
     private String name;
     private List<Address> addresses;
     private List<PhoneDetail> phones;
@@ -15,21 +15,24 @@ public class Users {
     private Map<String, String> character;
 
     public Users() {
-        this.id = UUID.randomUUID();
     }
 
     public Users(UUID uuid, String name) {
-        this.id = uuid;
+        this.userId = uuid;
         this.name = name;
     }
 
     public Users(String name) {
-        this.id = UUID.randomUUID();
+        this.userId = UUID.randomUUID();
         this.name = name;
     }
 
-    public UUID getId() {
-        return id;
+    public void setUserId(UUID userId) {
+        this.userId = userId;
+    }
+
+    public UUID getUserId() {
+        return userId;
     }
 
     public void setName(String name) {
@@ -73,6 +76,8 @@ public class Users {
     }
 
     public String toJSONString() {
+        if (userId == null)
+            userId = UUID.randomUUID();
         return JSONObject.toJSONString(this);
     }
 }

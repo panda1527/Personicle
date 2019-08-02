@@ -5,14 +5,29 @@ DROP DATASET FoodLog IF EXISTS;
 DROP TYPE FoodLogType IF EXISTS;
 
 CREATE TYPE FoodLogType AS OPEN {
-  userId: uuid, --primary key uuid for user
+  userId: string, --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   name: string?,
   foodname: string,
   weight: bigint,
   total_calories: double,
-  position: point,
+  latitude: double,
+  longitude: double,
   preference_star: int
 };
 
 CREATE DATASET FoodLog(FoodLogType) PRIMARY KEY userId, timestamp;
+
+DROP DATASET Food IF EXISTS;
+
+DROP TYPE FoodType IF EXISTS;
+
+CREATE TYPE FoodType AS OPEN {
+  foodname: string, --primary key
+  calories: double,
+  carbohydrate: bigint,
+  fat: bigint,
+  protein: bigint
+};
+
+CREATE DATASET Food(FoodType) PRIMARY KEY foodname;

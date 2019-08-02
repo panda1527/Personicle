@@ -1,10 +1,10 @@
 USE Personicle;
 
-DROP DATASET EmotionVedio IF EXISTS;
+DROP DATASET EmotionVideo IF EXISTS;
 
-DROP TYPE EmotionVedioType IF EXISTS;
+DROP TYPE EmotionVideoType IF EXISTS;
 
-CREATE TYPE EmotionVedioType AS OPEN {
+CREATE TYPE EmotionVideoType AS OPEN {
   userId: string, --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   name: string?,
@@ -12,4 +12,4 @@ CREATE TYPE EmotionVedioType AS OPEN {
   comments: string
 };
 
-CREATE DATASET EmotionVedio(EmotionVedioType) PRIMARY KEY userId, timestamp;
+CREATE DATASET EmotionVideo(EmotionVideoType) PRIMARY KEY userId, timestamp;

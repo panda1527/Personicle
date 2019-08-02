@@ -10,9 +10,9 @@ CREATE TYPE EmotionEventType AS OPEN {
   beginAt: datetime,
   endAt: datetime,
   category: string,
-  strengthen: int,
-  valence: int,
-  arousal: int
+  strengthen: double,
+  valence: double,
+  arousal: double
 };
 
 CREATE DATASET EmotionEvent(EmotionEventType) PRIMARY KEY userId, timestamp;

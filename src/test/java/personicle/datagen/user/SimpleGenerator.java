@@ -1,4 +1,4 @@
-package datagen.user;
+package personicle.datagen.user;
 
 import asterix.record.Address;
 import asterix.record.EmailDetail;

@@ -1,4 +1,4 @@
-package datagen.observation;
+package personicle.datagen.observation;
 
 import asterix.record.Food;
 import asterix.record.FoodLog;

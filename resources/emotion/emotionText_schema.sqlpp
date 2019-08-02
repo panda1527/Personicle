@@ -1,0 +1,15 @@
+USE Personicle;
+
+DROP DATASET EmotionText IF EXISTS;
+
+DROP TYPE EmotionTextType IF EXISTS;
+
+CREATE TYPE EmotionTextType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  name: string?,
+  message: string,
+  comments: string
+};
+
+CREATE DATASET EmotionText(EmotionTextType) PRIMARY KEY userId, timestamp;

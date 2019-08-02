@@ -5,11 +5,11 @@ DROP DATASET EmotionAudio IF EXISTS;
 DROP TYPE EmotionAudioType IF EXISTS;
 
 CREATE TYPE EmotionAudioType AS OPEN {
-userId: string, --primary key string for user, will be changed to uuid later
-timestamp: bigint, --primary key timestamp for observation
-name: string?,
-path: string,
-comments: string
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  name: string?,
+  path: string,
+  comments: string
 };
 
 CREATE DATASET EmotionAudio(EmotionAudioType) PRIMARY KEY userId, timestamp;

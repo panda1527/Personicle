@@ -1,0 +1,18 @@
+USE Personicle;
+
+DROP DATASET EmotionEvent IF EXISTS;
+
+DROP TYPE EmotionEventType IF EXISTS;
+
+CREATE TYPE EmotionEventType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  beginAt: datetime,
+  endAt: datetime,
+  category: string,
+  strengthen: int,
+  valence: int,
+  arousal: int
+};
+
+CREATE DATASET EmotionEvent(EmotionEventType) PRIMARY KEY userId, timestamp;

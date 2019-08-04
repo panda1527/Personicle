@@ -1,0 +1,14 @@
+USE Personicle;
+
+DROP DATASET BraceletUser IF EXISTS;
+
+DROP TYPE BraceletUserType IF EXISTS;
+
+CREATE TYPE BraceletUserType AS OPEN {
+  userId: string,
+  userName: string?,
+  deviceIds: [string],
+  macs: [string]
+};
+
+CREATE DATASET BraceletUser(BraceletUserType) PRIMARY KEY userId;

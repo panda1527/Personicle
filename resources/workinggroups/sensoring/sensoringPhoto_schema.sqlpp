@@ -1,0 +1,15 @@
+USE Personicle;
+
+DROP DATASET SensoringPhoto IF EXISTS;
+
+DROP TYPE SensoringPhotoType IF EXISTS;
+
+CREATE TYPE SensoringPhotoType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  userName: string?,
+  filepath: string,
+  comments: string
+};
+
+CREATE DATASET SensoringPhoto(SensoringPhotoType) PRIMARY KEY userId, timestamp;

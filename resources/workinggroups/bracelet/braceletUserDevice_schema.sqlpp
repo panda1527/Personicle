@@ -1,0 +1,18 @@
+USE Personicle;
+
+DROP DATASET BraceletDevice IF EXISTS;
+
+DROP TYPE BraceletDeviceType IF EXISTS;
+
+CREATE TYPE BraceletDeviceType AS OPEN {
+deviceId: string, --guarantee identification in application, e.g., UUID
+name: string,
+userId: string,
+userName: string?,
+netId: string,
+isConnected: boolean,
+age: int,
+gender: int
+};
+
+CREATE DATASET BraceletDevice(BraceletDeviceType) PRIMARY KEY userId;

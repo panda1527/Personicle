@@ -1,0 +1,17 @@
+USE Personicle;
+
+DROP DATASET SensoringGPS IF EXISTS;
+
+DROP TYPE SensoringGPSType IF EXISTS;
+
+CREATE TYPE SensoringGPSType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  userName: string?,
+  weatherInfo: int,
+  latitude: [double],
+  longitude: [double],
+  comments: string
+};
+
+CREATE DATASET SensoringGPS(SensoringGPSType) PRIMARY KEY userId, timestamp;

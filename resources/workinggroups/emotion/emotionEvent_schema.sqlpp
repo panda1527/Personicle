@@ -7,6 +7,7 @@ DROP TYPE EmotionEventType IF EXISTS;
 CREATE TYPE EmotionEventType AS OPEN {
   userId: string, --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
+  userName: string?,
   beginAt: datetime,
   endAt: datetime,
   category: string,

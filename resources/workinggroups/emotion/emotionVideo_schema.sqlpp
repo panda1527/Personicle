@@ -7,8 +7,8 @@ DROP TYPE EmotionVideoType IF EXISTS;
 CREATE TYPE EmotionVideoType AS OPEN {
   userId: string, --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
-  name: string?,
-  path: string,
+  userName: string?,
+  filepath: string,
   comments: string
 };
 

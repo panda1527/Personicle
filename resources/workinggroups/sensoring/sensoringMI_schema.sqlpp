@@ -4,10 +4,10 @@ DROP DATASET SensoringMI IF EXISTS;
 
 DROP TYPE SensoringMIType IF EXISTS;
 
-CREATE TYPE EmotionAudioType AS OPEN {
+CREATE TYPE SensoringMIType AS OPEN {
   userId: string, --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
-  name: string?,
+  userName: string?,
   heartrate: int,
   stepcount: int,
   comments: string

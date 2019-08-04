@@ -1,0 +1,19 @@
+USE Personicle;
+
+DROP DATASET BraceletDaylySteps IF EXISTS;
+
+DROP TYPE BraceletDaylyStepsType IF EXISTS;
+
+CREATE TYPE BraceletDaylyStepsType AS OPEN {
+  mac: string, --unique string for device, which can also be changed to deviceId
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  step: int,
+  meter: int,
+  cal: int,
+  lot: int,
+  freq: int,
+  datas: [int]
+};
+
+CREATE DATASET BraceletDaylySteps(BraceletDaylyStepsType) PRIMARY KEY mac, timestamp;

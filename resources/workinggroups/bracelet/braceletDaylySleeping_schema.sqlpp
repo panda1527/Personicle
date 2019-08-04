@@ -1,0 +1,19 @@
+USE Personicle;
+
+DROP DATASET BraceletDaylySleeping IF EXISTS;
+
+DROP TYPE BraceletDaylySleepingType IF EXISTS;
+
+CREATE TYPE BraceletDaylySleepingType AS OPEN {
+  mac: string, --unique string for device, which can also be changed to deviceId
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  slpdur: int,
+  deepdur: int,
+  lightdur: int,
+  wakedur: int,
+  freq: int,
+  datas: [int]
+};
+
+CREATE DATASET BraceletDaylySleeping(BraceletDaylySleepingType) PRIMARY KEY mac, timestamp;

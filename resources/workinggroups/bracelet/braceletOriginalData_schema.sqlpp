@@ -1,0 +1,18 @@
+USE Personicle;
+
+DROP DATASET BraceletOriginalData IF EXISTS;
+
+DROP TYPE BraceletOriginalDataType IF EXISTS;
+
+CREATE TYPE BraceletOriginalDataType AS OPEN {
+  mac: string, --unique string for device, which can also be changed to deviceId
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  beginAt: datetime,
+  endAt: datetime,
+  dataType: string,
+  freq: int,
+  datas: [string] --with the form of [ppg:x:y:z,ppg1:x1:y1:z1...], can be changed to point array
+};
+
+CREATE DATASET BraceletOriginalData(BraceletOriginalDataType) PRIMARY KEY mac, timestamp;

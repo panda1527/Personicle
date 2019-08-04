@@ -1,0 +1,21 @@
+USE Personicle;
+
+DROP DATASET BraceletReminder IF EXISTS;
+
+DROP TYPE BraceletReminderType IF EXISTS;
+
+CREATE TYPE BraceletReminderType AS OPEN {
+  mac: string, --unique string for device, which can also be changed to deviceId
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  dnd: int,
+  tel: int,
+  msg: int,
+  ws: int,
+  qq: int,
+  timesec: string,
+  beginAt: datetime?,
+  endAt: datetime?
+};
+
+CREATE DATASET BraceletReminder(BraceletReminderType) PRIMARY KEY mac, timestamp;

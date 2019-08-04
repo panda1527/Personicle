@@ -1,0 +1,27 @@
+USE Personicle;
+
+DROP DATASET BraceletSettingSign IF EXISTS;
+
+DROP TYPE BraceletSettingSignType IF EXISTS;
+
+DROP TYPE BraceletMaxMinPair IF EXISTS;
+
+CREATE TYPE BraceletMaxMinPair AS {
+   max: int,
+   min: int
+};
+
+CREATE TYPE BraceletSettingSignType AS OPEN {
+  mac: string, --unique string for device, which can also be changed to deviceId
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  hri: int,
+  hhrat: int,
+  lhrat: int,
+  hras: int,
+  hbpat: BraceletMaxMinPair,
+  lbpat: BraceletMaxMinPair,
+  bpas: int
+};
+
+CREATE DATASET BraceletSettingSign(BraceletSettingSignType) PRIMARY KEY mac, timestamp;

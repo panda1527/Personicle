@@ -1,0 +1,16 @@
+USE Personicle;
+
+DROP DATASET BraceletReminderSedentary IF EXISTS;
+
+DROP TYPE BraceletReminderSedentaryType IF EXISTS;
+
+CREATE TYPE BraceletReminderSedentaryType AS OPEN {
+  mac: string, --unique string for device, which can also be changed to deviceId
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  weekly: string,
+  amsec: string,
+  pmsec: string
+};
+
+CREATE DATASET BraceletReminderSedentary(BraceletReminderSedentaryType) PRIMARY KEY mac, timestamp;

@@ -1,0 +1,16 @@
+USE Personicle;
+
+DROP DATASET BraceletTestBloodPressure IF EXISTS;
+
+DROP TYPE BraceletTestBloodPressureType IF EXISTS;
+
+CREATE TYPE BraceletTestBloodPressureType AS OPEN {
+  mac: string, --unique string for device, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  hr: int,
+  sbp: int,
+  dbp: int
+};
+
+CREATE DATASET BraceletTestBloodPressure(BraceletTestBloodPressureType) PRIMARY KEY mac, timestamp;

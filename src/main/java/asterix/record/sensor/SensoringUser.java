@@ -6,6 +6,7 @@ public class SensoringUser {
     private String userId; //userId: string, --guarantee identification in application, e.g., UUID
     private String userName; //userName: string?,
     private String password; //password: string,
+    private String phonenumber; //phonenumber: string,
     private int age; //age: int,
     private int gender; //gender: int
 
@@ -31,6 +32,14 @@ public class SensoringUser {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
     public int getAge() {

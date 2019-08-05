@@ -8,6 +8,7 @@ CREATE TYPE SensoringUserType AS OPEN {
   userId: string, --guarantee identification in application, e.g., UUID
   userName: string?,
   password: string,
+  phonenumber: string,
   age: int,
   gender: int
 };

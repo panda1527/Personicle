@@ -1,8 +1,9 @@
 package asterix.record.emotion;
 
+import asterix.record.ObservationBasis;
 import com.alibaba.fastjson.JSONObject;
 
-public class EmotionAudio extends EmotionBasis {
+public class EmotionAudio extends ObservationBasis {
     private String path; //path: string,
 
     public String getPath() {

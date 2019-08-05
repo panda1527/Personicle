@@ -1,8 +1,9 @@
 package asterix.record.emotion;
 
+import asterix.record.ObservationBasis;
 import com.alibaba.fastjson.JSONObject;
 
-public class EmotionText extends EmotionBasis {
+public class EmotionText extends ObservationBasis {
     private String message; //message: string,
 
     public String getMessage() {

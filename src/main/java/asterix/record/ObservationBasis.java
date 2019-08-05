@@ -1,11 +1,11 @@
-package asterix.record.emotion;
+package asterix.record;
 
 import com.alibaba.fastjson.JSONObject;
 
-public class EmotionBasis {
+public class ObservationBasis {
     private String userId; //userId: string, --primary key string for user, will be changed to uuid later
     private long timestamp; //timestamp: bigint, --primary key timestamp for observation
-    private String name; //name: string?,
+    private String userName; //name: string?,
     private String comments; //comments: string
 
     public String getUserId() {
@@ -24,12 +24,12 @@ public class EmotionBasis {
         this.timestamp = timestamp;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public void setComments(String comments) {

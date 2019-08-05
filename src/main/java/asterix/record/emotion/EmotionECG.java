@@ -1,10 +1,11 @@
 package asterix.record.emotion;
 
+import asterix.record.ObservationBasis;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
-public class EmotionECG extends EmotionBasis {
+public class EmotionECG extends ObservationBasis {
     private List<Double> payload; //payload: [double],
 
     public List<Double> getPayload() {

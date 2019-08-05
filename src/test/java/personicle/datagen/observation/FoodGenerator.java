@@ -1,7 +1,7 @@
 package personicle.datagen.observation;
 
-import asterix.record.Food;
-import asterix.record.FoodLog;
+import asterix.record.food.Food;
+import asterix.record.food.FoodLog;
 import asterix.record.Users;
 import com.alibaba.fastjson.JSONObject;
 
@@ -76,12 +76,13 @@ public class FoodGenerator {
             double dely = (maxy - miny) / gran;
             for (int i = 0; i < gran; i++) {
                 FoodLog log = new FoodLog();
-                log.setUserId(user.getUserId());
-                log.setName(user.getName());
+                log.setUserId(user.getUserId().toString());
+                log.setUserName(user.getUserName());
                 log.setTimestamp(begintick + i);
                 log.setFoodname(foodNames.get(randomnum.nextInt(foodNames.size())));
                 log.setTotal_calories(randompos.nextDouble() * 500);
                 log.setWeight(randomnum.nextInt(400));
+                log.setComments(log.getFoodname() + " eaten by " + log.getUserName());
                 double x = minx + i * delx;
                 double y = miny + i * dely;
                 log.setLatitude(x);

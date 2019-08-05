@@ -167,7 +167,7 @@ public class SimpleGenerator {
             String name = genName();
             Pair<String, String> addr = genGegion();
             Users user = new Users();
-            user.setName(name);
+            user.setUserName(name);
             Address address = new Address();
             address.setCity("深圳市");
             address.setState("广东省");

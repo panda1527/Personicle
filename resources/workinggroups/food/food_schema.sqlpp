@@ -1,23 +1,5 @@
 USE Personicle;
 
-DROP DATASET FoodLog IF EXISTS;
-
-DROP TYPE FoodLogType IF EXISTS;
-
-CREATE TYPE FoodLogType AS OPEN {
-  userId: string, --primary key string for user, will be changed to uuid later
-  timestamp: bigint, --primary key timestamp for observation
-  userName: string?,
-  foodname: string,
-  weight: bigint,
-  total_calories: double,
-  latitude: double,
-  longitude: double,
-  preference_star: int
-};
-
-CREATE DATASET FoodLog(FoodLogType) PRIMARY KEY userId, timestamp;
-
 DROP DATASET Food IF EXISTS;
 
 DROP TYPE FoodType IF EXISTS;

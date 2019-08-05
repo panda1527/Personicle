@@ -1,8 +1,9 @@
 package asterix.record.sensor;
 
+import asterix.record.ObservationBasis;
 import com.alibaba.fastjson.JSONObject;
 
-public class SensoringSoftInfo {
+public class SensoringSoftInfo extends ObservationBasis {
     private String softinfo;//softinfo: string,
 
     public String getSoftinfo() {

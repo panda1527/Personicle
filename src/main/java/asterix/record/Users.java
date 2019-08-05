@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public class Users {
     private UUID userId;
-    private String name;
+    private String userName;
     private List<Address> addresses;
     private List<PhoneDetail> phones;
     private List<EmailDetail> emails;
@@ -17,14 +17,14 @@ public class Users {
     public Users() {
     }
 
-    public Users(UUID uuid, String name) {
+    public Users(UUID uuid, String userName) {
         this.userId = uuid;
-        this.name = name;
+        this.userName = userName;
     }
 
-    public Users(String name) {
+    public Users(String userName) {
         this.userId = UUID.randomUUID();
-        this.name = name;
+        this.userName = userName;
     }
 
     public void setUserId(UUID userId) {
@@ -35,12 +35,12 @@ public class Users {
         return userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
     public void setAddresses(List<Address> addresses) {

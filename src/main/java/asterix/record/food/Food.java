@@ -1,4 +1,4 @@
-package asterix.record;
+package asterix.record.food;
 
 import com.alibaba.fastjson.JSONObject;
 

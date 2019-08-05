@@ -1,43 +1,15 @@
-package asterix.record;
+package asterix.record.food;
 
+import asterix.record.ObservationBasis;
 import com.alibaba.fastjson.JSONObject;
 
-import java.util.UUID;
-
-public class FoodLog {
-    private UUID userId; //userId: string, --primary key string for user, will be changed to uuid later
-    private long timestamp; //timestamp: bigint, --primary key timestamp for observation
-    private String name; //name: string?,
+public class FoodLog extends ObservationBasis {
     private String foodname; //foodname: string,
     private long weight; //weight: bigint,
     private double total_calories; //total_calories: double,
     private double latitude; // will be changed to position: point
     private double longitude;
     private int preference_star; //preference_star: int
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
-    }
-
-    public UUID getUserId() {
-        return userId;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public void setFoodname(String foodname) {
         this.foodname = foodname;

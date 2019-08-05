@@ -43,7 +43,7 @@ CREATE TYPE UserType AS OPEN {
   --primary key uuid for user
   --userId: uuid,
   userId: string, --guarantee identification in application, e.g., UUID
-  name: string?,
+  userName: string?,
   dateOfBirth: date?,
   addresses: [AddressType]?,
   phones: [PhoneDetailType]?,

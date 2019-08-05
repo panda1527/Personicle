@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
-public class BraceletSleeping extends BraceletDaylyInfo {
+public class BraceletDaylySleeping extends BraceletDaylyBasis {
     private int slpdur; //slpdur: int,
     private int deepdur; //deepdur: int,
     private int lightdur; //lightdur: int,

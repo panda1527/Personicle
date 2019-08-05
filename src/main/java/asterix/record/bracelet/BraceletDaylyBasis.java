@@ -2,7 +2,7 @@ package asterix.record.bracelet;
 
 import com.alibaba.fastjson.JSONObject;
 
-public class BraceletDaylyInfo extends BraceletObservation {
+public class BraceletDaylyBasis extends BraceletObservation {
     private int freq; // freq: int,
 
     public int getFreq() {

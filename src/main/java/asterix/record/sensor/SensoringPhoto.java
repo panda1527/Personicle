@@ -1,8 +1,9 @@
 package asterix.record.sensor;
 
+import asterix.record.ObservationBasis;
 import com.alibaba.fastjson.JSONObject;
 
-public class SensoringPhoto {
+public class SensoringPhoto extends ObservationBasis {
     private String filepath;//filepath: string,
 
     public String getFilepath() {

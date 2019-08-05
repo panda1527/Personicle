@@ -13,3 +13,4 @@ CREATE TYPE SensoringPhotoType AS OPEN {
 };
 
 CREATE DATASET SensoringPhoto(SensoringPhotoType) PRIMARY KEY userId, timestamp;
+CREATE INDEX SensoringPhotoUserIdIdx on SensoringPhoto(userId) type btree;

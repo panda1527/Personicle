@@ -17,3 +17,4 @@ CREATE TYPE EmotionEventType AS OPEN {
 };
 
 CREATE DATASET EmotionEvent(EmotionEventType) PRIMARY KEY userId, timestamp;
+CREATE INDEX EmotionEventUserIdIdx on EmotionEvent(userId) type btree;

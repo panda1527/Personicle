@@ -1,33 +1,53 @@
 package asterix.record.emotion;
 
+import asterix.record.EventBasis;
 import com.alibaba.fastjson.JSONObject;
 
-import java.sql.Timestamp;
-
-public class EmotionEvent {
-    private String userId; //userId: string, --primary key string for user, will be changed to uuid later
-    private long timestamp; //timestamp: bigint, --primary key timestamp for observation
-    private Timestamp beginAt; //beginAt: datetime,
-    private Timestamp endAt; //endAt: datetime,
+public class EmotionEvent extends EventBasis {
     private String category; // category: string,
+    private String activity; // activity: string,
     private double strengthen; //strengthen: double,
     private double valence; // valence: double,
     private double getValence; //arousal: double
 
-    public String getUserId() {
-        return userId;
+    public String getCategory() {
+        return category;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public String getActivity() {
+        return activity;
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public double getStrengthen() {
+        return strengthen;
+    }
+
+    public void setStrengthen(double strengthen) {
+        this.strengthen = strengthen;
+    }
+
+    public double getValence() {
+        return valence;
+    }
+
+    public void setValence(double valence) {
+        this.valence = valence;
+    }
+
+    public double getGetValence() {
+        return getValence;
+    }
+
+    public void setGetValence(double getValence) {
+        this.getValence = getValence;
     }
 
     public String toJSONString() {

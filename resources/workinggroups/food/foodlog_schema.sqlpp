@@ -18,3 +18,4 @@ CREATE TYPE FoodLogType AS OPEN {
 };
 
 CREATE DATASET FoodLog(FoodLogType) PRIMARY KEY userId, timestamp;
+CREATE INDEX FoodUserIdIdx on FoodLog(userId) type btree;

@@ -13,3 +13,4 @@ CREATE TYPE SensoringSoftInfoType AS OPEN {
 };
 
 CREATE DATASET SensoringSoftInfo(SensoringSoftInfoType) PRIMARY KEY userId, timestamp;
+CREATE INDEX SensoringSoftInfoUserIdIdx on SensoringSoftInfo(userId) type btree;

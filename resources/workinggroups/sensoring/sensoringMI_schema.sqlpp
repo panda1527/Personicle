@@ -14,3 +14,4 @@ CREATE TYPE SensoringMIType AS OPEN {
 };
 
 CREATE DATASET SensoringMI(SensoringMIType) PRIMARY KEY userId, timestamp;
+CREATE INDEX SensoringMIUserIdIdx on SensoringMI(userId) type btree;

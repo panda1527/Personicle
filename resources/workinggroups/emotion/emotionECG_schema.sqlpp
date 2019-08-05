@@ -13,3 +13,4 @@ CREATE TYPE EmotionECGType AS OPEN {
 };
 
 CREATE DATASET EmotionECG(EmotionECGType) PRIMARY KEY userId, timestamp;
+CREATE INDEX EmotionECGUserIdIdx on EmotionECG(userId) type btree;

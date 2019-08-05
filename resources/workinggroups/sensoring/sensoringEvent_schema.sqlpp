@@ -16,3 +16,4 @@ CREATE TYPE SensoringEventType AS OPEN {
 };
 
 CREATE DATASET SensoringEvent(SensoringEventType) PRIMARY KEY userId, timestamp;
+CREATE INDEX SensoringEventUserIdIdx on SensoringEvent(userId) type btree;

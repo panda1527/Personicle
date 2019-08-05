@@ -22,3 +22,4 @@ CREATE TYPE SensoringCPType AS OPEN {
 };
 
 CREATE DATASET SensoringCP(SensoringCPType) PRIMARY KEY userId, timestamp;
+CREATE INDEX SensoringCPUserIdIdx on SensoringCP(userId) type btree;

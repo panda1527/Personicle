@@ -7,9 +7,9 @@ DROP TYPE FoodType IF EXISTS;
 CREATE TYPE FoodType AS OPEN {
   foodname: string, --primary key
   calories: double,
-  carbohydrate: bigint,
-  fat: bigint,
-  protein: bigint
+  carbohydrate: double,
+  fat: double,
+  protein: double
 };
 
 CREATE DATASET Food(FoodType) PRIMARY KEY foodname;

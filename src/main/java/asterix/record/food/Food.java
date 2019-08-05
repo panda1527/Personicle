@@ -5,9 +5,9 @@ import com.alibaba.fastjson.JSONObject;
 public class Food {
     private String foodname; //foodname: string, --primary key
     private double calories; //calories: double,
-    private long carbohydrate; //carbohydrate: bigint,
-    private long fat; //fat: bigint,
-    private long protein;//protein: bigint
+    private double carbohydrate; //carbohydrate: bigint,
+    private double fat; //fat: bigint,
+    private double protein;//protein: bigint
 
     public void setFoodname(String foodname) {
         this.foodname = foodname;
@@ -25,27 +25,27 @@ public class Food {
         return calories;
     }
 
-    public void setCarbohydrate(long carbohydrate) {
+    public void setCarbohydrate(double carbohydrate) {
         this.carbohydrate = carbohydrate;
     }
 
-    public long getCarbohydrate() {
+    public double getCarbohydrate() {
         return carbohydrate;
     }
 
-    public void setFat(long fat) {
+    public void setFat(double fat) {
         this.fat = fat;
     }
 
-    public long getFat() {
+    public double getFat() {
         return fat;
     }
 
-    public void setProtein(long protein) {
+    public void setProtein(double protein) {
         this.protein = protein;
     }
 
-    public long getProtein() {
+    public double getProtein() {
         return protein;
     }
 

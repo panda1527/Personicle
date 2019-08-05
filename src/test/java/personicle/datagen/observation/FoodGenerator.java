@@ -40,9 +40,9 @@ public class FoodGenerator {
             Food fent = new Food();
             fent.setFoodname(food);
             fent.setCalories(randompos.nextDouble() * 500);
-            fent.setCarbohydrate(randomnum.nextInt(200));
-            fent.setFat(randomnum.nextInt(180));
-            fent.setProtein(randomnum.nextInt(120));
+            fent.setCarbohydrate(randomnum.nextDouble() * 200);
+            fent.setFat(randomnum.nextDouble() * 180);
+            fent.setProtein(randomnum.nextDouble() * 120);
             bw.write(fent.toJSONString() + "\n");
         }
         bw.close();
@@ -81,7 +81,7 @@ public class FoodGenerator {
                 log.setTimestamp(begintick + i);
                 log.setFoodname(foodNames.get(randomnum.nextInt(foodNames.size())));
                 log.setTotal_calories(randompos.nextDouble() * 500);
-                log.setWeight(randomnum.nextInt(400));
+                log.setWeight(randomnum.nextDouble() * 400);
                 log.setComments(log.getFoodname() + " eaten by " + log.getUserName());
                 double x = minx + i * delx;
                 double y = miny + i * dely;
@@ -90,7 +90,6 @@ public class FoodGenerator {
                 log.setPreference_star(randomnum.nextInt(4) + 1);
                 //System.out.println(log.toJSONString());
                 bw.write(log.toJSONString() + "\n");
-
             }
         }
         bw.close();

@@ -9,7 +9,7 @@ CREATE TYPE FoodLogType AS OPEN {
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   foodname: string,
-  weight: bigint,
+  weight: double,
   total_calories: double,
   latitude: double,
   longitude: double,

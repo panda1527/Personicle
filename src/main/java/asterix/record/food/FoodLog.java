@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 
 public class FoodLog extends ObservationBasis {
     private String foodname; //foodname: string,
-    private long weight; //weight: bigint,
+    private double weight; //weight: bigint,
     private double total_calories; //total_calories: double,
     private double latitude; // will be changed to position: point
     private double longitude;
@@ -43,11 +43,11 @@ public class FoodLog extends ObservationBasis {
         return total_calories;
     }
 
-    public void setWeight(long weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public long getWeight() {
+    public double getWeight() {
         return weight;
     }
 

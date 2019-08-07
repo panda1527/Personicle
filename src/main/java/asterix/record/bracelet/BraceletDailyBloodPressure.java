@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
-public class BraceletDaylyBloodPressure extends BraceletDaylyBasis {
+public class BraceletDailyBloodPressure extends BraceletDailyBasis {
     private int maxbp; //maxbp: int,
     private int avgbp; //avgbp: int,
     private int minbp; //minbp: int,

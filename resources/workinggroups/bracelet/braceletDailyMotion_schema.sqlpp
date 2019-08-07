@@ -1,10 +1,10 @@
 USE Personicle;
 
-DROP DATASET BraceletDaylySteps IF EXISTS;
+DROP DATASET BraceletDailySteps IF EXISTS;
 
-DROP TYPE BraceletDaylyStepsType IF EXISTS;
+DROP TYPE BraceletDailyStepsType IF EXISTS;
 
-CREATE TYPE BraceletDaylyStepsType AS OPEN {
+CREATE TYPE BraceletDailyStepsType AS OPEN {
   mac: string, --unique string for device, which can also be changed to deviceId
   timestamp: bigint, --primary key timestamp for observation, extraction date
   userName: string?,
@@ -16,4 +16,4 @@ CREATE TYPE BraceletDaylyStepsType AS OPEN {
   datas: [int]
 };
 
-CREATE DATASET BraceletDaylySteps(BraceletDaylyStepsType) PRIMARY KEY mac, timestamp;
+CREATE DATASET BraceletDailySteps(BraceletDailyStepsType) PRIMARY KEY mac, timestamp;

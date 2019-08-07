@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
-public class BraceletDaylySteps extends BraceletDaylyBasis {
+public class BraceletDailySteps extends BraceletDailyBasis {
     private int step; //step: int,
     private int meter; //meter: int,
     private int cal; //cal: int,

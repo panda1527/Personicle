@@ -1,4 +1,4 @@
-package personicle.datagen.observation;
+package personicle.datagen.observation.Food;
 
 import asterix.record.food.Food;
 import asterix.record.food.FoodLog;
@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.io.*;
 import java.util.*;
 
-public class FoodGenerator {
+public class FoodLogGenerator {
     private static final int gran = 100;
 
     private static final double minY = 30.0;

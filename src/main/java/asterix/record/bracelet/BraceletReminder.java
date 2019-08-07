@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.sql.Timestamp;
 
-public class BraceletReminder extends BraceletEvent {
+public class BraceletReminder extends BraceletAction {
     private Timestamp beginAt; //beginAt: datetime?,
     private Timestamp endAt; //endAt: datetime?,
     private int dnd; //dnd: int,

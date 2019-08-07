@@ -2,7 +2,7 @@ package asterix.record.bracelet;
 
 import com.alibaba.fastjson.JSONObject;
 
-public class BraceletEvent {
+public class BraceletAction {
     private String mac; //mac: string, --unique string for device, which can also be changed to deviceId
     private long timestamp; //timestamp: bigint, --primary key timestamp for observation, extraction date
     private String userName; //userName: string?,

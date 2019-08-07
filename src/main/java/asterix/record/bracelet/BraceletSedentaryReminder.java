@@ -2,7 +2,7 @@ package asterix.record.bracelet;
 
 import com.alibaba.fastjson.JSONObject;
 
-public class BraceletSedentaryReminder extends BraceletEvent {
+public class BraceletSedentaryReminder extends BraceletAction {
     private String weekly; //weekly: string,
     private String amsec; //amsec: string,
     private String pmsec; //pmsec: string

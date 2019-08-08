@@ -1,5 +1,6 @@
 package personicle.datagen.observation.Food;
 
+import asterix.record.Address;
 import asterix.record.EmailDetail;
 import asterix.record.PhoneDetail;
 import asterix.record.Users;
@@ -14,8 +15,8 @@ import java.util.*;
 
 public class FoodLogFlatten {
     private static void flattenFood() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("./Food.adm"));
-        BufferedWriter bw = new BufferedWriter(new FileWriter("./Food.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("e:/Food.adm"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("e:/Food.txt"));
         String line;
         while ((line = br.readLine()) != null) {
             String wline = "";
@@ -29,6 +30,7 @@ public class FoodLogFlatten {
             wline += food.getFat();
             wline += "|";
             wline += food.getProtein();
+            wline += "|";
             wline += "\n";
             bw.write(wline);
         }
@@ -37,8 +39,8 @@ public class FoodLogFlatten {
     }
 
     private static void flattenUsers() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("./pseudo_users.adm"));
-        BufferedWriter bw = new BufferedWriter(new FileWriter("./pseudo_users.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("e:/pseudo_users.adm"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("e:/pseudo_users.txt"));
         String line;
         while ((line = br.readLine()) != null) {
             String wline = "";
@@ -47,7 +49,8 @@ public class FoodLogFlatten {
             wline += "|";
             wline += user.getUserName();
             wline += "|";
-            wline += user.getAddresses();
+            List<Address> addresses = user.getAddresses();
+            wline += JSONArray.toJSONString(addresses);
             wline += "|";
             List<PhoneDetail> pones = user.getPhones();
             wline += JSONArray.toJSONString(pones);
@@ -56,6 +59,7 @@ public class FoodLogFlatten {
             wline += JSONArray.toJSONString(emails);
             wline += "|";
             wline += JSON.toJSONString(user.getCharacter());
+            wline += "|";
             wline += "\n";
             bw.write(wline);
         }
@@ -63,9 +67,8 @@ public class FoodLogFlatten {
         bw.close();
     }
 
-    private static void flattenFoodLog() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("./FoodLog.adm"));
-        BufferedWriter bw = new BufferedWriter(new FileWriter("./FoodLog.txt"));
+    private static void flattenFoodLog(BufferedWriter bw, String path) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(path));
         String line;
         while ((line = br.readLine()) != null) {
             String wline = "";
@@ -89,16 +92,20 @@ public class FoodLogFlatten {
             wline += foodlog.getPreference_star();
             wline += "|";
             wline += foodlog.getComments();
+            wline += "|";
             wline += "\n";
             bw.write(wline);
         }
         br.close();
-        bw.close();
     }
 
     public static void main(String[] args) throws IOException {
         flattenFood();
         flattenUsers();
-        flattenFoodLog();
+        BufferedWriter bw = new BufferedWriter(new FileWriter("e:/FoodLog.txt"));
+        for (char c = 'a'; c <= 'j'; c++) {
+            flattenFoodLog(bw, "e:/xa" + c);
+        }
+        bw.close();
     }
 }

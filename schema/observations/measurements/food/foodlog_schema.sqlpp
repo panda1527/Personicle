@@ -1,0 +1,21 @@
+USE Personicle;
+
+DROP DATASET FoodLog IF EXISTS;
+
+DROP TYPE FoodLogType IF EXISTS;
+
+CREATE TYPE FoodLogType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  userName: string?,
+  foodname: string,
+  weight: double,
+  total_calories: double,
+  latitude: double,
+  longitude: double,
+  preference_star: int,
+  comments: string
+};
+
+CREATE DATASET FoodLog(FoodLogType) PRIMARY KEY userId, timestamp;
+CREATE INDEX FoodUserIdIdx on FoodLog(userId) type btree;

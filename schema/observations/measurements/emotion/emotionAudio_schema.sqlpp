@@ -1,0 +1,16 @@
+USE Personicle;
+
+DROP DATASET EmotionAudio IF EXISTS;
+
+DROP TYPE EmotionAudioType IF EXISTS;
+
+CREATE TYPE EmotionAudioType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  userName: string?,
+  filepath: string,
+  comments: string
+};
+
+CREATE DATASET EmotionAudio(EmotionAudioType) PRIMARY KEY userId, timestamp;
+CREATE INDEX EmotionAudioUserIdIdx on EmotionAudio(userId) type btree;

@@ -9,8 +9,10 @@ CREATE TYPE SensoringUserType AS OPEN {
   userName: string?,
   password: string,
   phonenumber: string,
+  uniqueId: UUID?,
   age: int,
   gender: int
 };
 
 CREATE DATASET SensoringUser(SensoringUserType) PRIMARY KEY userId;
+CREATE INDEX SensoringUserUIDIndex on SensoringUser(uniqueId) type btree;

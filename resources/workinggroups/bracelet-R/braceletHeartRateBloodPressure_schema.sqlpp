@@ -1,0 +1,21 @@
+USE Personicle;
+
+DROP DATASET BraceletDailyHeartRateBloodPressure IF EXISTS;
+
+DROP TYPE BraceletDailyHeartRateBloodPressureType IF EXISTS;
+
+CREATE TYPE BraceletDailyHeartRateBloodPressureType AS OPEN {
+  id: UUID,
+  netId: int?
+  --,
+  mac: string, --unique string for device, which can also be changed to deviceId
+  timestamp: bigint, --primary key timestamp for observation, extraction date
+  userName: string?,
+  maxhr: int,
+  avghr: int,
+  minhr: int,
+  freq: int,
+  datas: [string] --alternatively, this can be changed to pairs of <time, counter>
+};
+
+CREATE DATASET BraceletDailyHeartRateBloodPressure(BraceletDailyHeartRateBloodPressureType) PRIMARY KEY mac, timestamp;

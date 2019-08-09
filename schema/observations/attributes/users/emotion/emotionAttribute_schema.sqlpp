@@ -1,0 +1,16 @@
+USE Personicle;
+
+DROP DATASET EmotionAttribute IF EXISTS;
+
+DROP TYPE EmotionAttributeType IF EXISTS;
+
+CREATE TYPE EmotionAttributeType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  strengthen: double,
+  valence: double,
+  arousal: double
+};
+
+CREATE DATASET EmotionAttribute(EmotionAttributeType) PRIMARY KEY userId, timestamp;
+CREATE INDEX EmotionAttributeUserIdIdx on EmotionAttribute(userId) type btree;

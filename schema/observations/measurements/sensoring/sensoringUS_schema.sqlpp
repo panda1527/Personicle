@@ -5,12 +5,12 @@ DROP DATASET SensoringSoftInfo IF EXISTS;
 DROP TYPE SensoringSoftInfoType IF EXISTS;
 
 CREATE TYPE SensoringSoftInfoType AS OPEN {
-  userId: string, --primary key string for user, will be changed to uuid later
+  deviceId: string,  --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   softinfo: string,
   comments: string
 };
 
-CREATE DATASET SensoringSoftInfo(SensoringSoftInfoType) PRIMARY KEY userId, timestamp;
-CREATE INDEX SensoringSoftInfoUserIdIdx on SensoringSoftInfo(userId) type btree;
+CREATE DATASET SensoringSoftInfo(SensoringSoftInfoType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX SensoringSoftInfoUserIdIdx on SensoringSoftInfo(deviceId) type btree;

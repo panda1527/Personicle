@@ -5,12 +5,12 @@ DROP DATASET EmotionVideo IF EXISTS;
 DROP TYPE EmotionVideoType IF EXISTS;
 
 CREATE TYPE EmotionVideoType AS OPEN {
-  userId: string, --primary key string for user, will be changed to uuid later
+  deviceId: string,  --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   filepath: string,
   comments: string
 };
 
-CREATE DATASET EmotionVideo(EmotionVideoType) PRIMARY KEY userId, timestamp;
-CREATE INDEX EmotionVideoUserIdIdx on EmotionVideo(userId) type btree;
+CREATE DATASET EmotionVideo(EmotionVideoType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX EmotionVideoUserIdIdx on EmotionVideo(deviceId) type btree;

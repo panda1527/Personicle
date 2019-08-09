@@ -1,0 +1,20 @@
+-- has been replaced by generalMeasurement
+USE Personicle;
+
+DROP DATASET SensoringMeasurement IF EXISTS;
+
+DROP TYPE SensoringMeasurementType IF EXISTS;
+
+CREATE TYPE SensoringMeasurementType AS OPEN {
+  deviceId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  userName: string?,
+  beginAt: datetime,
+  endAt: datetime,
+  category: string,
+  activity: string,
+  description: string
+};
+
+CREATE DATASET SensoringMeasurement(SensoringMeasurementType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX SensoringMeasurementUserIdIdx on SensoringMeasurement(deviceId) type btree;

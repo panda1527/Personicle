@@ -5,12 +5,12 @@ DROP DATASET SensoringPhoto IF EXISTS;
 DROP TYPE SensoringPhotoType IF EXISTS;
 
 CREATE TYPE SensoringPhotoType AS OPEN {
-  userId: string, --primary key string for user, will be changed to uuid later
+  deviceId: string,  --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   filepath: string,
   comments: string
 };
 
-CREATE DATASET SensoringPhoto(SensoringPhotoType) PRIMARY KEY userId, timestamp;
-CREATE INDEX SensoringPhotoUserIdIdx on SensoringPhoto(userId) type btree;
+CREATE DATASET SensoringPhoto(SensoringPhotoType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX SensoringPhotoUserIdIdx on SensoringPhoto(deviceId) type btree;

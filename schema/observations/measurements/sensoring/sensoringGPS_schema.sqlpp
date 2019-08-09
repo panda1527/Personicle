@@ -5,7 +5,7 @@ DROP DATASET SensoringGPS IF EXISTS;
 DROP TYPE SensoringGPSType IF EXISTS;
 
 CREATE TYPE SensoringGPSType AS OPEN {
-  userId: string, --primary key string for user, will be changed to uuid later
+  deviceId: string,  --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   weatherInfo: int,
@@ -14,5 +14,5 @@ CREATE TYPE SensoringGPSType AS OPEN {
   comments: string
 };
 
-CREATE DATASET SensoringGPS(SensoringGPSType) PRIMARY KEY userId, timestamp;
-CREATE INDEX SensoringGPSUserIdIdx on SensoringGPS(userId) type btree;
+CREATE DATASET SensoringGPS(SensoringGPSType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX SensoringGPSUserIdIdx on SensoringGPS(deviceId) type btree;

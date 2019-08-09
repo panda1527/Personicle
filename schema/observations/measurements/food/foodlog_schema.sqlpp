@@ -5,7 +5,7 @@ DROP DATASET FoodLog IF EXISTS;
 DROP TYPE FoodLogType IF EXISTS;
 
 CREATE TYPE FoodLogType AS OPEN {
-  userId: string, --primary key string for user, will be changed to uuid later
+  deviceId: string,  --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   foodname: string,
@@ -17,5 +17,5 @@ CREATE TYPE FoodLogType AS OPEN {
   comments: string
 };
 
-CREATE DATASET FoodLog(FoodLogType) PRIMARY KEY userId, timestamp;
-CREATE INDEX FoodUserIdIdx on FoodLog(userId) type btree;
+CREATE DATASET FoodLog(FoodLogType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX FoodUserIdIdx on FoodLog(deviceId) type btree;

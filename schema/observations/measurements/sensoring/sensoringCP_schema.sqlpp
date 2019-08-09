@@ -13,7 +13,7 @@ CREATE TYPE Spatial3DPoint AS {
 };
 
 CREATE TYPE SensoringCPType AS OPEN {
-  userId: string, --primary key string for user, will be changed to uuid later
+  deviceId: string,  --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   accelerometer: [Spatial3DPoint],
@@ -21,5 +21,5 @@ CREATE TYPE SensoringCPType AS OPEN {
   comments: string
 };
 
-CREATE DATASET SensoringCP(SensoringCPType) PRIMARY KEY userId, timestamp;
-CREATE INDEX SensoringCPUserIdIdx on SensoringCP(userId) type btree;
+CREATE DATASET SensoringCP(SensoringCPType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX SensoringCPUserIdIdx on SensoringCP(userId) type btree; -- unnecessary as deviceId is first part of PK.

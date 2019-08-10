@@ -1,11 +1,11 @@
 package personicle.datagen.observation.Food;
 
-import asterix.record.Address;
-import asterix.record.EmailDetail;
-import asterix.record.PhoneDetail;
-import asterix.record.Users;
-import asterix.record.food.Food;
-import asterix.record.food.FoodLog;
+import asterix.recordV1.Address;
+import asterix.recordV1.EmailDetail;
+import asterix.recordV1.PhoneDetail;
+import asterix.recordV1.Users;
+import asterix.recordV1.food.Food;
+import asterix.recordV1.food.FoodLog;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

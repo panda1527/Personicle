@@ -5,11 +5,9 @@ DROP DATASET SensoringUser IF EXISTS;
 DROP TYPE SensoringUserType IF EXISTS;
 
 CREATE TYPE SensoringUserType AS OPEN {
-  userId: string, --guarantee identification in application, e.g., UUID
-  userName: string?,
+  userId: UUID, --guarantee identification in application, e.g., UUID
   password: string,
   phonenumber: string,
-  uniqueId: UUID?,
   age: int,
   gender: int
 };

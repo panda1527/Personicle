@@ -1,9 +1,9 @@
 package personicle.datagen.user;
 
-import asterix.record.Address;
-import asterix.record.EmailDetail;
-import asterix.record.PhoneDetail;
-import asterix.record.Users;
+import asterix.recordV1.Address;
+import asterix.recordV1.EmailDetail;
+import asterix.recordV1.PhoneDetail;
+import asterix.recordV1.Users;
 import com.alibaba.fastjson.JSONObject;
 import javafx.util.Pair;
 

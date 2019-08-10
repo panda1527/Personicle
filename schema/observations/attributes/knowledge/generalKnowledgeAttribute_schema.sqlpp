@@ -5,7 +5,7 @@ DROP DATASET GeneralKGAttribute IF EXISTS;
 DROP TYPE GeneralKGAttributeType IF EXISTS;
 
 CREATE TYPE GeneralKGAttributeType AS OPEN {
-  attributeId: UUID, -- primary key string for attribute of a user
+  attributeId: UUID, -- primary key string for attribute of a knowledge
   name: string,      -- foreign key of knowledge
   timestamp: bigint,
   category: string

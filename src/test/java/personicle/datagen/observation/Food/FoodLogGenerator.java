@@ -1,8 +1,8 @@
 package personicle.datagen.observation.Food;
 
-import asterix.record.food.Food;
-import asterix.record.food.FoodLog;
-import asterix.record.Users;
+import asterix.recordV1.food.Food;
+import asterix.recordV1.food.FoodLog;
+import asterix.recordV1.Users;
 import com.alibaba.fastjson.JSONObject;
 
 import java.io.*;

@@ -1,7 +1,7 @@
 package personicle.datagen.observation.sensor;
 
-import asterix.record.sensor.SensoringCP;
-import asterix.record.sensor.Spatial3DPoint;
+import asterix.recordV1.sensor.SensoringCP;
+import asterix.recordV1.sensor.Spatial3DPoint;
 
 import java.io.IOException;
 import java.util.ArrayList;

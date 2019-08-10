@@ -1,6 +1,6 @@
 package personicle.datagen.observation.sensor;
 
-import asterix.record.sensor.SensoringMI;
+import asterix.recordV1.sensor.SensoringMI;
 
 import java.io.IOException;
 

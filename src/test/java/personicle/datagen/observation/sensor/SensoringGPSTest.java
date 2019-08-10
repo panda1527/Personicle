@@ -1,6 +1,6 @@
 package personicle.datagen.observation.sensor;
 
-import asterix.record.sensor.SensoringGPS;
+import asterix.recordV1.sensor.SensoringGPS;
 
 import java.io.IOException;
 import java.util.ArrayList;

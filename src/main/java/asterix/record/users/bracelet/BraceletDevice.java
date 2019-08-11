@@ -1,5 +1,6 @@
 package asterix.record.users.bracelet;
 
+import asterix.record.users.PersonicleUser;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.UUID;

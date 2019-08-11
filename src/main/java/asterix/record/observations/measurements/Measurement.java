@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class Measurements {
+public class Measurement {
     private UUID measureId; //measureId: UUID,  --primary key string for measurement, UUID
     private String deviceId; //deviceId: string, derived from a device id (from UUID to string)
     private long timestamp; //timestamp: bigint,

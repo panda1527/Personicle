@@ -18,7 +18,7 @@ public class BraceletUser extends PersonicleUser {
     private int target; //target: int,
     private String status; //status: string?,
     private String updateTime; //updateTime: string?
-    private List<UUID> deviceIds; //deviceIds: [UUID]?,
+    private List<BraceletDevice> devices; //deviceIds: [UUID]?,
     private List<String> macs; //macs: [string]?
 
     public int getNetId() {
@@ -109,12 +109,12 @@ public class BraceletUser extends PersonicleUser {
         this.updateTime = updateTime;
     }
 
-    public List<UUID> getDeviceIds() {
-        return deviceIds;
+    public List<BraceletDevice> getDevices() {
+        return devices;
     }
 
-    public void setDeviceIds(List<UUID> deviceIds) {
-        this.deviceIds = deviceIds;
+    public void setDevices(List<BraceletDevice> devices) {
+        this.devices = devices;
     }
 
     public List<String> getMacs() {

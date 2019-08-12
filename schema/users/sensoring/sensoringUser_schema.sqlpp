@@ -13,4 +13,4 @@ CREATE TYPE SensoringUserType AS OPEN {
 };
 
 CREATE DATASET SensoringUser(SensoringUserType) PRIMARY KEY userId;
-CREATE INDEX SensoringUserUIDIndex on SensoringUser(uniqueId) type btree;
+-- CREATE INDEX SensoringUserUIDIndex on SensoringUser(uniqueId) type btree;

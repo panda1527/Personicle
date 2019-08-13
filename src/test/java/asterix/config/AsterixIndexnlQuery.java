@@ -26,10 +26,10 @@ public class AsterixIndexnlQuery {
         }
         br.close();
         Random rand = new Random();
+        AsterixConf conf = new AsterixConf("http://127.0.0.1:19002");
+        AsterixConn conn = new AsterixConn();
+        conf.setDataverse("PersonicleServer");
         for (int i = 0; i < BATCH_SIZE; i++) {
-            AsterixConf conf = new AsterixConf("http://127.0.0.1:19002");
-            AsterixConn conn = new AsterixConn();
-            conf.setDataverse("PersonicleServer");
             String indexnlQuery = "\nSELECT f.foodname as fn, count(*) as counter" + "\nFROM users u, FoodLog f"
                     + "\nWHERE u.userName = \"" + users.get(rand.nextInt(users.size())).trim() + "\""
                     + "\nAND u.userId /*+ indexnl */ = f.userId" + "\ngroup by f.foodname\n" + "order by counter desc;";

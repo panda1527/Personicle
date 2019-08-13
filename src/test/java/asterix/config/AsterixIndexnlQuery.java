@@ -24,6 +24,7 @@ public class AsterixIndexnlQuery {
             }
             users.add(user.getUserName());
         }
+        br.close();
         Random rand = new Random();
         for (int i = 0; i < BATCH_SIZE; i++) {
             AsterixConf conf = new AsterixConf("http://127.0.0.1:19002");

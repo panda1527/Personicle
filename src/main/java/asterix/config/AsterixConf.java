@@ -49,7 +49,7 @@ public class AsterixConf {
      * @param dataverse
      */
     public AsterixConf setDataverse(String dataverse) {
-        this.dataverse = "use dataverse " + dataverse + ";";
+        this.dataverse = "use " + dataverse + ";";
         return this;
     }
 
@@ -95,7 +95,7 @@ public class AsterixConf {
     public String getUrl(OpType type) {
         switch (type) {
             case QUERY:
-                return basic_url + "/query";
+                return basic_url + "/query/service";
             case INSERT:
             case DELETE:
             case UPDATE:

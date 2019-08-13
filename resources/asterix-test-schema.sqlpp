@@ -1,0 +1,9 @@
+DROP DATAVERSE asterixtest IF EXISTS;
+CREATE DATAVERSE asterixtest;
+
+CREATE TYPE TestSchemaType AS OPEN {
+  id: int,
+  name: string?
+}
+
+CREATE DATASET TestSchema(TestSchemaType) PRIMARY KEY id;

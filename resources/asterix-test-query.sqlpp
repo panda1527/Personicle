@@ -1,0 +1,3 @@
+USE asterixtest;
+SELECT count(*)
+FROM TestSchema;

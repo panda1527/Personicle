@@ -1,0 +1,39 @@
+use Personicle;
+select fl.preference_star as fstar, count(*) as fcnt
+from Food f,  FoodLog fl
+where f.foodname = "糖醋里脊"
+and f.foodname /*+ indexnl */ = fl.foodname
+group by fl.preference_star
+order by fcnt desc;
+
+use Personicle;
+select f.foodname as fname, count(*) as fcnt
+from users u,  FoodLog f
+where u.userName = "匡书鹏"
+and u.userId /*+ indexnl */ = f.userId
+group by f.foodname
+order by fcnt desc;
+
+use Personicle;
+select f.foodname as fname, sum(fd.calories * f.weight) as fcnt
+from users u,  FoodLog f, Food fd
+where u.userName = "匡书鹏"
+and u.userId /*+ indexnl */ = f.userId
+and f.foodname = fd.foodname
+group by f.foodname
+order by fcnt desc;
+
+--The followings are bad quereis
+
+use Personicle;
+select f.foodname as fname, sum(fd.calories * f.weight) as fcnt
+from FoodLog f, users u,  Food fd
+where u.userName = "匡书鹏"
+and u.userId /*+ indexnl */ = f.userId
+and f.foodname = fd.foodname
+group by f.foodname
+order by fcnt desc;
+
+use Personicle;
+select f.foodname as foodname from  FoodLog as f, users as u
+where u.userName = "匡书鹏" and u.userId /*+ indexnl */ = f.userId;

@@ -24,7 +24,7 @@ import com.alibaba.fastjson.JSONObject;
  * @author michael
  */
 public class AsterixConn {
-    private static HttpClient client = new HttpClient();
+    private HttpClient client = new HttpClient();
 
     public AsterixConn(HostConfiguration hc, HttpClientParams params) {
         client.setHostConfiguration(hc);
@@ -40,7 +40,7 @@ public class AsterixConn {
 
     }
 
-    @SuppressWarnings("unused") private static InputStream executeHttpMethod(HttpMethod method) {
+    @SuppressWarnings("unused") private InputStream executeHttpMethod(HttpMethod method) {
         //      HttpClient client = new HttpClient();
         try {
             int statusCodes = client.executeMethod(method);

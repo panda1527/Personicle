@@ -11,7 +11,7 @@ import java.util.List;
 public class AsterixIndexnlQuery {
     private static int TOTAL_SIZE = 1000000;
     private static int PDEGREE = 2;
-    private static int BATCH_SIZE = 100;
+    private static int BATCH_SIZE = 10000;
     private static List<String> users = new ArrayList<>();
 
     public static void main(String[] args) throws Exception {
@@ -25,9 +25,14 @@ public class AsterixIndexnlQuery {
             users.add(user.getUserName());
         }
         br.close();
-        Thread[] threads = new Thread[PDEGREE];
+        int threadNum = PDEGREE;
+        if (args.length >= 1) {
+            threadNum = Integer.parseInt(args[0]);
+        }
+        System.out.println("Thread: " + threadNum + " total: " + TOTAL_SIZE + " batch: " + BATCH_SIZE);
+        Thread[] threads = new Thread[threadNum];
 
-        for (int i = 0; i < PDEGREE; i++) {
+        for (int i = 0; i < threadNum; i++) {
             threads[i] = new Thread(new QueryThread(BATCH_SIZE, users));
             threads[i].start();
         }

@@ -17,7 +17,7 @@ public class QueryThread implements Runnable {
     }
 
     @Override public void run() {
-        Random rand = new Random(System.currentTimeMillis());
+        Random rand = new Random(System.currentTimeMillis() + this.hashCode());
         conf.setDataverse("PersonicleServer");
         for (int i = 0; i < BATCH_SIZE; i++) {
             String indexnlQuery = "\nSELECT f.foodname as fn, count(*) as counter" + "\nFROM users u, FoodLog f"

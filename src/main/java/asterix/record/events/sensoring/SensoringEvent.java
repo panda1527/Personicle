@@ -1,9 +1,9 @@
 package asterix.record.events.sensoring;
 
-import asterix.record.events.Event;
+import asterix.record.events.PersonicleEvent;
 import com.alibaba.fastjson.JSONObject;
 
-public class SensoringEvent extends Event {
+public class SensoringEvent extends PersonicleEvent {
     private String category; //category: string,
     private String activity; //activity: string,
     private String description; //description: string

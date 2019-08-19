@@ -14,6 +14,8 @@ public class PersonicleUser {
     private UUID userId;
     private String userName;
     private LocalDate dateOfBirth;
+    private String country;
+    private String countryId;                   // with secondary index
     private List<Address> addresses;
     private List<PhoneDetail> phones;
     private List<EmailDetail> emails;
@@ -54,6 +56,22 @@ public class PersonicleUser {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
     }
 
     public void setAddresses(List<Address> addresses) {

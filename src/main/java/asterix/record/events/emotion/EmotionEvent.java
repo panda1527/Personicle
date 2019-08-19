@@ -1,9 +1,9 @@
 package asterix.record.events.emotion;
 
-import asterix.record.events.Event;
+import asterix.record.events.PersonicleEvent;
 import com.alibaba.fastjson.JSONObject;
 
-public class EmotionEvent extends Event {
+public class EmotionEvent extends PersonicleEvent {
     private String category; //category: string,
     private double strengthen; //strengthen: double,
     private double valence; //valence: double,

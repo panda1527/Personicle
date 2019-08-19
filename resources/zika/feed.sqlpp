@@ -1,0 +1,15 @@
+use twitter_zika;
+drop feed ZikaTweetFeed if exists;
+create feed ZikaTweetFeed with
+{
+    "adapter-name": "socket_adapter",
+    "sockets": "asterix_nc1:10001",
+    "address-type": "nc",
+    "type-name": "typeTweet",
+    "format": "adm"
+};
+
+set `wait-for-completion-feed` `true`;
+
+connect feed ZikaTweetFeed to dataset ds_zika_streaming;
+

@@ -1,0 +1,14 @@
+USE Personicle;
+
+DROP DATASET MotionAttribute IF EXISTS;
+
+DROP TYPE MotionAttributeType IF EXISTS;
+
+CREATE TYPE MotionAttributeType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  degree: double
+};
+
+CREATE DATASET MotionAttribute(MotionAttributeType) PRIMARY KEY userId, timestamp;
+--CREATE INDEX MotionAttributeUserIdIdx ON MotionAttribute(attributeId, timestamp) type btree;

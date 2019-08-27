@@ -13,4 +13,4 @@ CREATE TYPE EmotionAttributeType AS OPEN {
 };
 
 CREATE DATASET EmotionAttribute(EmotionAttributeType) PRIMARY KEY userId, timestamp;
-CREATE INDEX EmotionAttributeUserIdIdx on EmotionAttribute(userId) type btree;
+--CREATE INDEX EmotionAttributeUserIdIdx on EmotionAttribute(userId) type btree;

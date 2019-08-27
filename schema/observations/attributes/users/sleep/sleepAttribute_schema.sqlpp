@@ -1,0 +1,14 @@
+USE Personicle;
+
+DROP DATASET SleepAttribute IF EXISTS;
+
+DROP TYPE SleepAttributeType IF EXISTS;
+
+CREATE TYPE SleepAttributeType AS OPEN {
+  userId: string, --primary key string for user, will be changed to uuid later
+  timestamp: bigint, --primary key timestamp for observation
+  degree: double
+};
+
+CREATE DATASET SleepAttribute(SleepAttributeType) PRIMARY KEY userId, timestamp;
+--CREATE INDEX SleepAttributeUserIdIdx ON SleepAttribute(userId) type btree;

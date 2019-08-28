@@ -1,4 +1,4 @@
-package asterix.record.events.behavoir;
+package asterix.record.events.behavior;
 
 import asterix.record.events.PersonicleEvent;
 import com.alibaba.fastjson.JSONObject;

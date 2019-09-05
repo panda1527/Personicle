@@ -1,0 +1,25 @@
+USE Personicle;
+
+DROP DATASET BraceletUser IF EXISTS;
+
+DROP TYPE BraceletUserType IF EXISTS;
+
+CREATE TYPE BraceletUserType AS OPEN {
+  userId: UUID,
+  netId: int?,
+  password: string?,
+  token: string?,
+  nickName: string,     -- default "健康手环"
+  avadar: string,       -- default "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+  sex: int,             -- default (0)
+  weight: int,          -- default (700)
+  height: int,          -- default (180)
+  target: int,          -- default (10000)
+  status: string?,
+  updateTime: string?,
+  deviceIds: [UUID]?,
+  macs: [string]?
+};
+
+CREATE DATASET BraceletUser(BraceletUserType) PRIMARY KEY userId;
+-- CREATE INDEX BraceletUserUIDIndex on BraceletUser(uniqueId) type btree;

@@ -1,0 +1,25 @@
+USE Personicle;
+
+DROP DATASET BraceletRawList IF EXISTS;
+
+DROP TYPE BraceletRawListType IF EXISTS;
+
+CREATE TYPE BraceletRawListType AS OPEN {
+  deviceId: string,
+  timestamp: bigint,
+  netId: int?,
+  userName: string?,
+  mac: string?,
+  tag: string?,
+  startTime: bigint?,
+  endTime: bigint?,
+  count: int,        -- default (0)
+  rawDetailUrl: string?,
+  dateString: string?,
+  status: string?,
+  createTime: bigint?,
+  updateTime: bigint
+};
+
+CREATE DATASET BraceletRawList(BraceletRawListType) PRIMARY KEY  deviceId, timestamp;
+-- CREATE INDEX BraceletRawListMacIdx ON BraceletRawList(mac) TYPE btree; -- deviceId is mac

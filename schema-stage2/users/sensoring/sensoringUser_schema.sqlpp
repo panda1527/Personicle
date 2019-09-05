@@ -1,0 +1,16 @@
+USE Personicle;
+
+DROP DATASET SensoringUser IF EXISTS;
+
+DROP TYPE SensoringUserType IF EXISTS;
+
+CREATE TYPE SensoringUserType AS OPEN {
+  userId: UUID, --guarantee identification in application, e.g., UUID
+  password: string,
+  phonenumber: string,
+  age: int,
+  gender: int
+};
+
+CREATE DATASET SensoringUser(SensoringUserType) PRIMARY KEY userId;
+-- CREATE INDEX SensoringUserUIDIndex on SensoringUser(uniqueId) type btree;

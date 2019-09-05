@@ -1,0 +1,25 @@
+USE Personicle;
+
+DROP DATASET BraceletDevice IF EXISTS;
+
+DROP TYPE BraceletDeviceType IF EXISTS;
+
+CREATE TYPE BraceletDeviceType AS OPEN {
+  deviceId: UUID, --guarantee identification in application, e.g., UUID
+  netId: int?,
+  userId: string?,
+  userName: string?,
+  uuid: string?,
+  name: string?,
+  rssi: int,                    -- default (0)
+  mac: string,
+  manufacturerData: string?,
+  isConnected: int,             -- default (0)
+  selected: int,                -- default (0)
+  status: string?,
+  updateTime: bigint?
+};
+
+CREATE DATASET BraceletDevice(BraceletDeviceType) PRIMARY KEY deviceId;
+CREATE INDEX BraceletMACIndex on BraceletDevice(mac) type btree;
+CREATE INDEX BraceletDeviceUIDIndex on BraceletDevice(userId) type btree;

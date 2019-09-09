@@ -1,9 +1,5 @@
 package asterix.recordV2.events;
 
-import asterix.record.causalities.Causality;
-import asterix.record.events.RealWorldEvent;
-import asterix.record.observations.attributes.users.UserAttribute;
-import asterix.record.observations.measurements.Measurement;
 import com.alibaba.fastjson.JSONObject;
 
 import java.time.LocalDateTime;
@@ -11,24 +7,25 @@ import java.util.List;
 import java.util.UUID;
 
 public class PersonicleEvent {
-    private class Point {
-        private float latitude;
-        private float longitude;
+    public class Point {
+        private double latitude;
+        private double longitude;
 
-        public float getLatitude() {
+        public double getLatitude() {
             return this.latitude;
         }
 
-        public float getLongitude() {
+        public double getLongitude() {
             return this.longitude;
         }
 
-        public Point(float latitude, float longitude) {
+        public Point(double latitude, double longitude) {
+            this();
             this.latitude = latitude;
             this.longitude = longitude;
         }
 
-        public void reset(float latitude, float longitude) {
+        public void reset(double latitude, double longitude) {
             this.latitude = latitude;
             this.longitude = longitude;
         }
@@ -51,8 +48,10 @@ public class PersonicleEvent {
     private String geocode;
     private List<UUID> information;
     private String name;            //name: string,
-    private long level;             //level: bigint?,       --Jordan's paper referred to different levels of daily activities.
-    private List<UUID> causalities; //--foreign keys to ids of causalities which were used to translate from observations to this event
+    private long level;
+    //level: bigint?,       --Jordan's paper referred to different levels of daily activities.
+    private List<UUID> causalities;
+    //--foreign keys to ids of causalities which were used to translate from observations to this event
 
     public UUID getEventId() {
         return eventId;

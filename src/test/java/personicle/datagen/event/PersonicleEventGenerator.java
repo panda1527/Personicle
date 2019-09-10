@@ -4,7 +4,9 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import asterix.recordV2.events.PersonicleEvent;
-import com.alibaba.fastjson.JSONObject;
+import asterix.recordV2.wrapper.DateTime;
+import asterix.recordV2.wrapper.Point;
+import asterix.recordV2.wrapper.Uuid;
 
 import java.io.*;
 import java.util.*;
@@ -46,6 +48,7 @@ public class PersonicleEventGenerator {
             infoSet.add(UUID.randomUUID());
         }
 
+        BufferedWriter bw = new BufferedWriter(new FileWriter("./events.adm"));
         for (UUID user : userSet) {
             double minx = minX + rand.nextDouble() * 0.5;
             double maxx = minx + rand.nextDouble() * 0.25;
@@ -53,22 +56,27 @@ public class PersonicleEventGenerator {
             double maxy = miny + rand.nextDouble() * 0.25;
             double delx = (maxx - minx) / gran;
             double dely = (maxy - miny) / gran;
-            LocalDateTime begin = baseTime.plusMinutes(rand.nextInt(8 * 365 * 24 * 60 * 60));
+            LocalDateTime begin = baseTime.plusSeconds(rand.nextInt(8 * 365 * 24 * 60 * 60));
             for (int i = 0; i < gran; i++) {
                 PersonicleEvent event = new PersonicleEvent();
                 double x = minx + i * delx;
                 double y = miny + i * dely;
-                event.setEventId(UUID.randomUUID());
-                event.setUserId(user);
+                event.setEventId(new Uuid(UUID.randomUUID()));
+                event.setUserId(new Uuid(user));
                 begin.plusSeconds(10);
-                event.setBeginAt(begin);
-                event.setEndAt(begin.plusSeconds(10));
-                event.setLocation(event.new Point(x, y));
-                System.out.println(event.toJSONString());
+                event.setBeginAt(new DateTime(begin.plusSeconds(0)));
+                event.setEndAt(new DateTime(begin.plusSeconds(10)));
+                event.setLocation(new Point(x, y));
+                event.setName("Event-" + user.toString().substring(user.toString().length() - 10, user.toString().length()) + "-" + i);
+                event.setInformation(new ArrayList<>());
+                for (int j = 0; j < informationPerEvent; j++) {
+                    event.getInformation().add(new Uuid(infoSet.get(rand.nextInt(infoSet.size()))));
+                }
+                //System.out.println(event.toJSONString());
+                bw.write(event.toJSONString() + "\n");
             }
         }
 
-        BufferedWriter bw = new BufferedWriter(new FileWriter("./events.adm"));
         bw.close();
     }
 }

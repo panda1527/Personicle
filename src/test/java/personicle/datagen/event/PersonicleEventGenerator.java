@@ -12,13 +12,13 @@ import java.io.*;
 import java.util.*;
 
 public class PersonicleEventGenerator {
-    private static final int eventCount = 1000;//0000;
+    private static int eventCount = 1000;//0000;
 
-    private static final int userCount = 100;//0000;
+    private static int userCount = 100;//0000;
 
     private static final int subEventPer = 10;
 
-    private static final int informationCount = 100;//00000;
+    private static int informationCount = 100;//00000;
 
     private static final int informationPerEvent = 5;
 
@@ -39,6 +39,12 @@ public class PersonicleEventGenerator {
     private static LocalDateTime baseTime = LocalDateTime.of(2011, 01, 01, 0, 0, 0, 0);
 
     public static void main(String[] args) throws IOException {
+        if (args.length >= 3) {
+            eventCount = Integer.parseInt(args[0]);
+            userCount = Integer.parseInt(args[1]);
+            informationCount = Integer.parseInt(args[2]);
+        }
+        System.out.println("Event: " + eventCount + " user: " + userCount + " info: " + informationCount);
         List<UUID> userSet = new ArrayList<>();
         for (int i = 0; i < userCount; i++) {
             userSet.add(UUID.randomUUID());

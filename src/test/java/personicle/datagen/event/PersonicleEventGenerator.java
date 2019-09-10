@@ -84,7 +84,7 @@ public class PersonicleEventGenerator {
                 for (int j = 0; j < informationPerEvent; j++) {
                     event.getInformation().add(new Uuid(infoSet.get(rand.nextInt(infoSet.size()))));
                 }
-                System.out.println(event.toJSONString());
+                //System.out.println(event.toJSONString());
                 bw.write(event.toJSONString() + "\n");
             }
         }

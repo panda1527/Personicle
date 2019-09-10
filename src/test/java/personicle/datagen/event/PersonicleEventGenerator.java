@@ -22,7 +22,7 @@ public class PersonicleEventGenerator {
 
     private static final int informationPerEvent = 5;
 
-    private static final int gran = eventCount / userCount;
+    private static int gran = eventCount / userCount;
 
     private static final double minY = 30.0;
 
@@ -43,8 +43,9 @@ public class PersonicleEventGenerator {
             eventCount = Integer.parseInt(args[0]);
             userCount = Integer.parseInt(args[1]);
             informationCount = Integer.parseInt(args[2]);
+            gran = eventCount / userCount;
         }
-        System.out.println("Event: " + eventCount + " user: " + userCount + " info: " + informationCount);
+        System.out.println("Event: " + eventCount + " user: " + userCount + " per: " + gran + " info: " + informationCount);
         List<UUID> userSet = new ArrayList<>();
         for (int i = 0; i < userCount; i++) {
             userSet.add(UUID.randomUUID());

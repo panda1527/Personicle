@@ -36,7 +36,7 @@ public class PersonicleEventGenerator {
 
     private static Random randomnum = new Random();
 
-    private static LocalDateTime baseTime = LocalDateTime.of(2011, 01, 01, 0, 0, 0, 1);
+    private static LocalDateTime baseTime = LocalDateTime.of(2011, 01, 01, 0, 0, 0, 0);
 
     public static void main(String[] args) throws IOException {
         if (args.length >= 3) {

@@ -9,6 +9,7 @@ CREATE TYPE PersonicleEventType AS OPEN {
   userName: string?,    --secondary key of user name
   beginAt: datetime,    --start of event
   endAt: datetime,      --end of event using `` because of a potential AsterixDB bug
+  category: string,
   subEvents: [UUID]?,   --sub events of event
   location: point?,     --location of event
   geocode: string?,     --geometry code where the event took place.

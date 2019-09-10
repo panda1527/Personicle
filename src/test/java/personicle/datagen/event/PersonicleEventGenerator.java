@@ -71,8 +71,8 @@ public class PersonicleEventGenerator {
                 event.setEventId(new Uuid(UUID.randomUUID()));
                 event.setUserId(new Uuid(user));
                 begin.plusSeconds(10);
-                event.setBeginAt(new DateTime(begin.plusSeconds(0)));
-                event.setEndAt(new DateTime(begin.plusSeconds(10)));
+                event.setBeginAt(new DateTime(begin.plusSeconds(1)));
+                event.setEndAt(new DateTime(begin.plusSeconds(11)));
                 event.setLocation(new Point(x, y));
                 event.setName("Event-" + user.toString().substring(user.toString().length() - 10, user.toString().length()) + "-" + i);
                 event.setInformation(new ArrayList<>());

@@ -36,7 +36,7 @@ public class PersonicleEventGenerator {
 
     private static Random randomnum = new Random();
 
-    private static LocalDateTime baseTime = LocalDateTime.of(2011, 01, 01, 0, 0, 0, 0);
+    private static LocalDateTime baseTime = LocalDateTime.of(2011, 01, 01, 0, 0, 0, 1);
 
     public static void main(String[] args) throws IOException {
         if (args.length >= 3) {
@@ -63,23 +63,28 @@ public class PersonicleEventGenerator {
             double maxy = miny + rand.nextDouble() * 0.25;
             double delx = (maxx - minx) / gran;
             double dely = (maxy - miny) / gran;
-            LocalDateTime begin = baseTime.plusSeconds(rand.nextInt(8 * 365 * 24 * 60 * 60));
+            int second = rand.nextInt(8 * 365 * 24 * 60 * 60);
+            if (second % 2 == 0) {
+                second++;
+            }
+            LocalDateTime begin = baseTime.plusSeconds(second);
             for (int i = 0; i < gran; i++) {
                 PersonicleEvent event = new PersonicleEvent();
                 double x = minx + i * delx;
                 double y = miny + i * dely;
                 event.setEventId(new Uuid(UUID.randomUUID()));
                 event.setUserId(new Uuid(user));
-                begin.plusSeconds(10);
-                event.setBeginAt(new DateTime(begin.plusSeconds(1)));
-                event.setEndAt(new DateTime(begin.plusSeconds(11)));
+                begin.plusSeconds(1);
+                event.setBeginAt(new DateTime(begin));
+                event.setEndAt(new DateTime(begin.plusSeconds(10)));
                 event.setLocation(new Point(x, y));
+                event.setCategory("unknown");
                 event.setName("Event-" + user.toString().substring(user.toString().length() - 10, user.toString().length()) + "-" + i);
                 event.setInformation(new ArrayList<>());
                 for (int j = 0; j < informationPerEvent; j++) {
                     event.getInformation().add(new Uuid(infoSet.get(rand.nextInt(infoSet.size()))));
                 }
-                //System.out.println(event.toJSONString());
+                System.out.println(event.toJSONString());
                 bw.write(event.toJSONString() + "\n");
             }
         }

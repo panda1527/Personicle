@@ -18,6 +18,7 @@ public class PersonicleEvent {
     private List<Uuid> subEvents;   //subEvents: [uuid],    --sub events of event
     private Point location;         //location: point?,     --location of event
     private String geocode;
+    private String category;
     private List<Uuid> information;
     private String name;            //name: string,
     private long level;
@@ -87,6 +88,14 @@ public class PersonicleEvent {
 
     public void setGeocode(String geocode) {
         this.geocode = geocode;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public List<Uuid> getInformation() {

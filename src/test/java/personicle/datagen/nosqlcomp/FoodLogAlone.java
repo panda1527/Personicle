@@ -1,25 +1,50 @@
 package personicle.datagen.nosqlcomp;
 
 import asterix.recordV2.wrapper.DateTime;
-import asterix.recordV2.wrapper.Point;
 import asterix.recordV2.wrapper.Uuid;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
-public class FoodLog extends GeneralMeasurement {
+public class FoodLogAlone {
+    private Uuid deviceId;
+    private Long timestamp;
+    private String userName;
     private String foodName;
     private Double weight;
     private Double total_calories;
-    private List<Uuid> subEvents;   //subEvents: [uuid],    --sub events of event
-//    private Point location;         //location: point?,     --location of event
     private Double latitude;
     private Double longitude;
     private Integer preference_star;
     private String comments;
 
-    public FoodLog() {
-        super();
+    public FoodLogAlone(FoodLog fl) {
+        this.deviceId = fl.getDeviceId();
+        this.timestamp=fl.getTimestamp();
+        this.userName=fl.getUserName();
+        this.foodName=fl.getFoodName();
+        this.weight=fl.getWeight();
+        this.total_calories=fl.getTotal_calories();
+        this.latitude=fl.getLatitude();
+        this.longitude=fl.getLongitude();
+        this.preference_star=fl.getPreference_star();
+        this.comments=fl.getComments();
+    }
+
+    public Uuid getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(Uuid deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getFoodName() {
@@ -28,6 +53,14 @@ public class FoodLog extends GeneralMeasurement {
 
     public void setFoodName(String foodName) {
         this.foodName = foodName;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
     }
 
     public Double getWeight() {
@@ -44,14 +77,6 @@ public class FoodLog extends GeneralMeasurement {
 
     public void setTotal_calories(Double total_calories) {
         this.total_calories = total_calories;
-    }
-
-    public List<Uuid> getSubEvents() {
-        return subEvents;
-    }
-
-    public void setSubEvents(List<Uuid> subEvents) {
-        this.subEvents = subEvents;
     }
 
     public Double getLatitude() {
@@ -86,12 +111,7 @@ public class FoodLog extends GeneralMeasurement {
         this.comments = comments;
     }
 
-//    public String getActivity() {
-//        return activity;
-//    }
-//
-//    public void setActivity(String activity) {
-//        this.activity = activity;
-//    }
-
+    public String toJSONString() {
+        return JSONObject.toJSONString(this);
+    }
 }

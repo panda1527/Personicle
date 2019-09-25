@@ -12,10 +12,13 @@ public class EmotionECGAlone {
 
     public EmotionECGAlone(EmotionECG emotionECG) {
         this.deviceId = emotionECG.getDeviceId();
-        this.timestamp=emotionECG.getTimestamp();
-        this.userName=emotionECG.getUserName();
-        this.payload=emotionECG.getPayload();
-        this.comments=emotionECG.getComments();
+        this.timestamp = emotionECG.getTimestamp();
+        this.userName = emotionECG.getUserName();
+        this.payload = emotionECG.getPayload();
+        this.comments = emotionECG.getComments();
+    }
+
+    public EmotionECGAlone() {
     }
 
     public Uuid getDeviceId() {

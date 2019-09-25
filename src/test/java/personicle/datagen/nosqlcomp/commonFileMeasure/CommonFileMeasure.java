@@ -1,12 +1,13 @@
-package personicle.datagen.nosqlcomp;
+package personicle.datagen.nosqlcomp.commonFileMeasure;
 
 import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;
 import com.alibaba.fastjson.JSONObject;
+import personicle.datagen.nosqlcomp.GeneralMeasurement;
 
 import java.util.List;
 
-public class CommonFileMeasure extends GeneralMeasurement{
+public class CommonFileMeasure extends GeneralMeasurement {
     private String file_category;
     private String filepath;
     private String comments;

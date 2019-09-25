@@ -1,4 +1,4 @@
-package personicle.datagen.nosqlcomp;
+package personicle.datagen.nosqlcomp.commonFileMeasure;
 
 import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;

@@ -17,15 +17,18 @@ public class FoodLogAlone {
 
     public FoodLogAlone(FoodLog fl) {
         this.deviceId = fl.getDeviceId();
-        this.timestamp=fl.getTimestamp();
-        this.userName=fl.getUserName();
-        this.foodName=fl.getFoodName();
-        this.weight=fl.getWeight();
-        this.total_calories=fl.getTotal_calories();
-        this.latitude=fl.getLatitude();
-        this.longitude=fl.getLongitude();
-        this.preference_star=fl.getPreference_star();
-        this.comments=fl.getComments();
+        this.timestamp = fl.getTimestamp();
+        this.userName = fl.getUserName();
+        this.foodName = fl.getFoodName();
+        this.weight = fl.getWeight();
+        this.total_calories = fl.getTotal_calories();
+        this.latitude = fl.getLatitude();
+        this.longitude = fl.getLongitude();
+        this.preference_star = fl.getPreference_star();
+        this.comments = fl.getComments();
+    }
+
+    public FoodLogAlone() {
     }
 
     public Uuid getDeviceId() {

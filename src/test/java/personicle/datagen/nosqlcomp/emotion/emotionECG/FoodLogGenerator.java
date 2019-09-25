@@ -1,12 +1,16 @@
-package personicle.datagen.nosqlcomp;
+package personicle.datagen.nosqlcomp.emotion.emotionECG;
 
 import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;
+import personicle.datagen.nosqlcomp.GeneralMeasurement;
 
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 public class FoodLogGenerator {
     private static int measureCount = 1000;//0000;
@@ -70,9 +74,9 @@ public class FoodLogGenerator {
         }
 // GeneralMeasurement
 
-        BufferedWriter bw1 = new BufferedWriter(new FileWriter("D:/PCL/food/BigFoodLog1.adm"));
-        BufferedWriter bw2 = new BufferedWriter(new FileWriter("D:/PCL/food/FoodLogAlone1.adm"));
-        BufferedWriter bw3 = new BufferedWriter(new FileWriter("D:/PCL/food/GeneralMeasurement1.adm"));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter("D:/PCL/BigFoodLog1.adm"));
+        BufferedWriter bw2 = new BufferedWriter(new FileWriter("D:/PCL/FoodLogAlone1.adm"));
+        BufferedWriter bw3 = new BufferedWriter(new FileWriter("D:/PCL/GeneralMeasurement1.adm"));
         for (UUID device : deviceSet) {
             String userName=users.get(rand.nextInt(users.size()));
             double minx = minX + rand.nextDouble() * 0.5;
@@ -105,13 +109,14 @@ public class FoodLogGenerator {
                 foodLog.setMeasureId(new Uuid(UUID.randomUUID()));
                 foodLog.setCategory("unknown");
                 foodLog.setDescription(foodLog.getUserName()+" ate "+foodLog.getWeight()+"g "+foodLog.getFoodName());
-                foodLog.setAttribute(new ArrayList<>());
+                List<Uuid> attribute = new ArrayList<>();
                 for (int j = 0; j < attributePerEvent; j++) {
-                    foodLog.getAttribute().add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
+                    attribute.add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
                 }
+                foodLog.setAttribute(attribute);
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm=new GeneralMeasurement(foodLog);
-                FoodLogAlone fla=new FoodLogAlone(foodLog);
+                EmotionECGAlone fla=new EmotionECGAlone(foodLog);
                 bw1.write(foodLog.toJSONString() + "\n");
                 bw2.write(fla.toJSONString() + "\n");
                 bw3.write(gm.toJSONString() + "\n");

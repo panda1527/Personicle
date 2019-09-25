@@ -1,9 +1,7 @@
-package personicle.datagen.nosqlcomp;
+package personicle.datagen.nosqlcomp.food;
 
-import asterix.recordV2.wrapper.DateTime;
-import asterix.recordV2.wrapper.Point;
 import asterix.recordV2.wrapper.Uuid;
-import com.alibaba.fastjson.JSONObject;
+import personicle.datagen.nosqlcomp.GeneralMeasurement;
 
 import java.util.List;
 

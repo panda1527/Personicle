@@ -1,10 +1,7 @@
-package personicle.datagen.nosqlcomp;
+package personicle.datagen.nosqlcomp.food;
 
-import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;
 import com.alibaba.fastjson.JSONObject;
-
-import java.util.List;
 
 public class FoodLogAlone {
     private Uuid deviceId;

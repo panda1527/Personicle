@@ -14,7 +14,7 @@ public  class GeneralMeasurement {
     private DateTime startAt;  //startAt: datetime,    --start of event
     private DateTime endAt;    //endAt: datetime,      --end of event using `` because of a potential AsterixDB bugprivate DateTime startAt;
     private String category;
-    private List<Uuid> attribute;
+    private String attribute;
     private String activity;            //name: string,
     private String description;
 
@@ -90,12 +90,17 @@ public  class GeneralMeasurement {
         this.category = category;
     }
 
-    public List<Uuid> getAttribute() {
+    public String getAttribute() {
         return attribute;
     }
 
     public void setAttribute(List<Uuid> attribute) {
-        this.attribute = attribute;
+        this.attribute = new String();
+        for (Uuid uuid : attribute) {
+            this.attribute += uuid.getUuid().toString().replace("-", "");
+            this.attribute += " ";
+        }
+        this.attribute = this.attribute.trim();
     }
 
 //    public String getActivity() {

@@ -89,10 +89,11 @@ public class CommonFileMeasureGenerator {
                 commonFileMeasure.setFile_category(file_types.get(rand.nextInt(file_types.size())));
                 commonFileMeasure.setDescription(commonFileMeasure.getUserName() + " has " + commonFileMeasure.getFile_category() + " file ");
                 commonFileMeasure.setFilepath("---");
-                commonFileMeasure.setAttribute(new ArrayList<>());
+                List<Uuid> attribute = new ArrayList<>();
                 for (int j = 0; j < attributePerEvent; j++) {
-                    commonFileMeasure.getAttribute().add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
+                    attribute.add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
                 }
+                commonFileMeasure.setAttribute(attribute);
                 //System.out.println(event.toJSONString());
                 bw.write(commonFileMeasure.toJSONString() + "\n");
             }

@@ -1,0 +1,22 @@
+USE Personicle;
+
+DROP DATASET GeneralMeasurement IF EXISTS;
+
+DROP TYPE GeneralMeasurementType IF EXISTS;
+
+CREATE TYPE GeneralMeasurementType AS OPEN {
+  measureId: UUID,  --primary key string for measurement, UUID
+  deviceId: UUID,
+  timestamp: bigint,
+  userName: string?,
+  beginAt: datetime?,
+  endAt: datetime?,
+  category: string,
+  attribute: string?,
+  activity: string?,
+  description: string?
+};
+
+CREATE DATASET GeneralMeasurement(GeneralMeasurementType) PRIMARY KEY measureId;
+CREATE INDEX GeneralMeasurementDeviceIdIdx ON GeneralMeasurement(deviceId, timestamp) type btree;
+CREATE INDEX GeneralMeasurementAttributeIdx ON GeneralMeasurement(attribute) type fulltext;

@@ -1,10 +1,10 @@
-package personicle.datagen.nosqlcomp.emotion.emotionECG;
+package personicle.datagen.nosqlcomp.sensoring.sensoringUS;
 
 import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;
 import personicle.datagen.nosqlcomp.GeneralMeasurement;
-import personicle.datagen.nosqlcomp.food.FoodLog;
-import personicle.datagen.nosqlcomp.food.FoodLogAlone;
+import personicle.datagen.nosqlcomp.sensoring.sensoringGPS.SensoringGPS;
+import personicle.datagen.nosqlcomp.sensoring.sensoringGPS.SensoringGPSAlone;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class EmotionECGGenerator {
+public class SensoringUSGenerator {
     private static int measureCount = 1000000;//0000;
 
     private static int deviceCount = 100000;//0000;
@@ -70,20 +70,27 @@ public class EmotionECGGenerator {
         for (int i = 0; i < informationCount; i++) {
             AttriSet.add(UUID.randomUUID());
         }
-// GeneralMeasurement
 
-        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigEmotionECG.adm"));
-        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/EmotionECG_alone.adm"));
-        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/EmotionECG_general.adm"));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigSensoringGPS.adm"));
+        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/SensoringGPS_alone.adm"));
+        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/SensoringGPS_general.adm"));
         for (UUID device : deviceSet) {
             String userName = users.get(rand.nextInt(users.size()));
+            double minx = minX + rand.nextDouble() * 0.5;
+            double maxx = minx + rand.nextDouble() * 0.25;
+            double miny = minY + rand.nextDouble() * 0.5;
+            double maxy = miny + rand.nextDouble() * 0.25;
+            double delx = (maxx - minx) / gran;
+            double dely = (maxy - miny) / gran;
             int second = rand.nextInt(2 * 365 * 24 * 60 * 60);
             if (second % 2 == 0) {
                 second++;
             }
             LocalDateTime begin = baseTime.plusSeconds(second);
             for (int i = 0; i < gran; i++) {
-                EmotionECG BigLog = new EmotionECG();
+                SensoringGPS BigLog = new SensoringGPS();
+                double x = minx + i * delx*2;
+                double y = miny + i * dely*2;
                 // general
                 BigLog.setDeviceId(new Uuid(device));
                 BigLog.setUserName(userName);
@@ -102,11 +109,12 @@ public class EmotionECGGenerator {
 
                 // unique
                 BigLog.setComments("deviceId: " + BigLog.getDeviceId() + ",timeStamp: " + BigLog.getTimestamp());
-                BigLog.setPayload(new Double[]{1.0,2.0});
-
+                BigLog.setWeatherInfo(rand.nextInt(100));
+                BigLog.setLatitude(new Double[]{x,x+0.1});
+                BigLog.setLongitude(new Double[]{y,y+0.1});
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);
-                EmotionECGAlone alone = new EmotionECGAlone(BigLog);
+                SensoringGPSAlone alone = new SensoringGPSAlone(BigLog);
                 bw1.write(BigLog.toJSONString() + "\n");
                 bw2.write(alone.toJSONString() + "\n");
                 bw3.write(gm.toJSONString() + "\n");

@@ -1,8 +1,12 @@
 package personicle.datagen.nosqlcomp.bracelet.braceletSleep;
 
-import personicle.datagen.nosqlcomp.GeneralMeasurement;
+import asterix.recordV2.wrapper.Uuid;
+import com.alibaba.fastjson.JSONObject;
 
-public class BraceletSleep extends GeneralMeasurement {
+public class BraceletSleepAlone {
+    private Uuid deviceId;
+    private Long timestamp;
+    private String userName;
     private int netId;
     private String mac;
     private String date;
@@ -11,11 +15,57 @@ public class BraceletSleep extends GeneralMeasurement {
     private int runMin;
     private int restlessMin;
     private int deepMin;
-    private String stepsInHour="[]";
+    private String stepsInHour;
     private String dateString;
     private String status;
     private Long createTime;
     private Long updateTime;
+
+    public BraceletSleepAlone(BraceletSleep braceletSleep) {
+        this.deviceId = braceletSleep.getDeviceId();
+        this.timestamp = braceletSleep.getTimestamp();
+        this.userName = braceletSleep.getUserName();
+        this.netId = braceletSleep.getNetId();
+        this.mac = braceletSleep.getMac();
+        this.date = braceletSleep.getDate();
+        this.startTime = braceletSleep.getStartTime();
+        this.endTime = braceletSleep.getEndTime();
+        this.runMin = braceletSleep.getRunMin();
+        this.restlessMin = braceletSleep.getRestlessMin();
+        this.deepMin = braceletSleep.getDeepMin();
+        this.stepsInHour = braceletSleep.getStepsInHour();
+        this.dateString = braceletSleep.getDateString();
+        this.status = braceletSleep.getStatus();
+        this.createTime = braceletSleep.getCreateTime();
+        this.updateTime = braceletSleep.getUpdateTime();
+    }
+
+    public BraceletSleepAlone() {
+    }
+
+    public Uuid getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(Uuid deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public int getNetId() {
         return netId;
@@ -120,4 +170,9 @@ public class BraceletSleep extends GeneralMeasurement {
     public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
+
+    public String toJSONString() {
+        return JSONObject.toJSONString(this);
+    }
+
 }

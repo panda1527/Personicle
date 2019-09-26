@@ -6,7 +6,7 @@ import personicle.datagen.nosqlcomp.sensoring.Spatial3DPoint;
 
 import java.util.UUID;
 
-public class BraceletECGlist extends GeneralMeasurement {
+public class BraceletECGList extends GeneralMeasurement {
     private Uuid id;
     private int netId;
     private String mac;

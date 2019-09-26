@@ -1,10 +1,11 @@
-package personicle.datagen.nosqlcomp.emotion.emotionECG;
+package personicle.datagen.nosqlcomp.sensoring.sensoringCP;
 
 import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;
 import personicle.datagen.nosqlcomp.GeneralMeasurement;
-import personicle.datagen.nosqlcomp.food.FoodLog;
-import personicle.datagen.nosqlcomp.food.FoodLogAlone;
+import personicle.datagen.nosqlcomp.emotion.emotionText.EmotionText;
+import personicle.datagen.nosqlcomp.emotion.emotionText.EmotionTextAlone;
+import personicle.datagen.nosqlcomp.sensoring.Spatial3DPoint;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class EmotionECGGenerator {
+public class SensoringCPGenerator {
     private static int measureCount = 1000000;//0000;
 
     private static int deviceCount = 100000;//0000;
@@ -70,11 +71,10 @@ public class EmotionECGGenerator {
         for (int i = 0; i < informationCount; i++) {
             AttriSet.add(UUID.randomUUID());
         }
-// GeneralMeasurement
 
-        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigEmotionECG.adm"));
-        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/EmotionECG_alone.adm"));
-        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/EmotionECG_general.adm"));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigSensoringCP.adm"));
+        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/SensoringCP_alone.adm"));
+        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/SensoringCP_general.adm"));
         for (UUID device : deviceSet) {
             String userName = users.get(rand.nextInt(users.size()));
             int second = rand.nextInt(2 * 365 * 24 * 60 * 60);
@@ -83,7 +83,7 @@ public class EmotionECGGenerator {
             }
             LocalDateTime begin = baseTime.plusSeconds(second);
             for (int i = 0; i < gran; i++) {
-                EmotionECG BigLog = new EmotionECG();
+                SensoringCP BigLog = new SensoringCP();
                 // general
                 BigLog.setDeviceId(new Uuid(device));
                 BigLog.setUserName(userName);
@@ -101,12 +101,17 @@ public class EmotionECGGenerator {
                 BigLog.setAttribute(attribute);
 
                 // unique
+                Spatial3DPoint p1=new Spatial3DPoint(1.0,1.0,1.0);
+                Spatial3DPoint p2=new Spatial3DPoint(2.0,2.0,2.0);
+                Spatial3DPoint p3=new Spatial3DPoint(3.0,3.0,3.0);
+                Spatial3DPoint p4=new Spatial3DPoint(4.0,4.0,4.0);
                 BigLog.setComments("deviceId: " + BigLog.getDeviceId() + ",timeStamp: " + BigLog.getTimestamp());
-                BigLog.setPayload(new Double[]{1.0,2.0});
+                BigLog.setAccelerometer(new Spatial3DPoint[] {p1,p2});
+                BigLog.setGyroscope(new Spatial3DPoint[] {p3,p4});
 
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);
-                EmotionECGAlone alone = new EmotionECGAlone(BigLog);
+                SensoringCPAlone alone = new SensoringCPAlone(BigLog);
                 bw1.write(BigLog.toJSONString() + "\n");
                 bw2.write(alone.toJSONString() + "\n");
                 bw3.write(gm.toJSONString() + "\n");

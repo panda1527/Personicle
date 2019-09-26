@@ -1,10 +1,10 @@
-package personicle.datagen.nosqlcomp.emotion.emotionECG;
+package personicle.datagen.nosqlcomp.bracelet.braceletStep;
 
 import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;
 import personicle.datagen.nosqlcomp.GeneralMeasurement;
-import personicle.datagen.nosqlcomp.food.FoodLog;
-import personicle.datagen.nosqlcomp.food.FoodLogAlone;
+import personicle.datagen.nosqlcomp.bracelet.braceletSleep.BraceletSleep;
+import personicle.datagen.nosqlcomp.bracelet.braceletSleep.BraceletSleepAlone;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class EmotionECGGenerator {
+public class BraceletSleepGenerator {
     private static int measureCount = 1000000;//0000;
 
     private static int deviceCount = 100000;//0000;
@@ -70,11 +70,10 @@ public class EmotionECGGenerator {
         for (int i = 0; i < informationCount; i++) {
             AttriSet.add(UUID.randomUUID());
         }
-// GeneralMeasurement
 
-        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigEmotionECG.adm"));
-        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/EmotionECG_alone.adm"));
-        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/EmotionECG_general.adm"));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigBraceletStep.adm"));
+        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/BraceletStep_alone.adm"));
+        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/BraceletStep_general.adm"));
         for (UUID device : deviceSet) {
             String userName = users.get(rand.nextInt(users.size()));
             int second = rand.nextInt(2 * 365 * 24 * 60 * 60);
@@ -83,7 +82,7 @@ public class EmotionECGGenerator {
             }
             LocalDateTime begin = baseTime.plusSeconds(second);
             for (int i = 0; i < gran; i++) {
-                EmotionECG BigLog = new EmotionECG();
+                BraceletStep BigLog = new BraceletStep();
                 // general
                 BigLog.setDeviceId(new Uuid(device));
                 BigLog.setUserName(userName);
@@ -101,12 +100,10 @@ public class EmotionECGGenerator {
                 BigLog.setAttribute(attribute);
 
                 // unique
-                BigLog.setComments("deviceId: " + BigLog.getDeviceId() + ",timeStamp: " + BigLog.getTimestamp());
-                BigLog.setPayload(new Double[]{1.0,2.0});
 
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);
-                EmotionECGAlone alone = new EmotionECGAlone(BigLog);
+                BraceletStepAlone alone = new BraceletStepAlone(BigLog);
                 bw1.write(BigLog.toJSONString() + "\n");
                 bw2.write(alone.toJSONString() + "\n");
                 bw3.write(gm.toJSONString() + "\n");

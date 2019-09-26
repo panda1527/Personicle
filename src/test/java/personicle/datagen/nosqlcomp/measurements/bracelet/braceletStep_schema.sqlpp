@@ -1,0 +1,25 @@
+USE Personicle;
+
+DROP DATASET BraceletStep IF EXISTS;
+
+DROP TYPE BraceletStepType IF EXISTS;
+
+CREATE TYPE BraceletStepType AS OPEN {
+  deviceId: string,
+  timestamp: bigint,
+  netId: int?,
+  userName: string?,
+  mac: string?,
+  date: string,
+  sec: int,             -- default (0)
+  runtime: int,         -- default (0)
+  step: int,            -- default (0)
+  stepsInHour: string,  -- default ("[]")
+  dateString: string?,
+  status: string?,
+  createTime: bigint?,
+  updateTime: bigint?
+};
+
+CREATE DATASET BraceletStep(BraceletStepType) PRIMARY KEY deviceId, timestamp;
+-- CREATE INDEX BraceletStepMacIdx ON BraceletStep(mac) TYPE btree; --deviceId is mac

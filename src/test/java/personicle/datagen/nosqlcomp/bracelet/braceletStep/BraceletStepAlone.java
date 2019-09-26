@@ -1,19 +1,68 @@
 package personicle.datagen.nosqlcomp.bracelet.braceletStep;
 
-import personicle.datagen.nosqlcomp.GeneralMeasurement;
 
-public class BraceletStep extends GeneralMeasurement {
+import asterix.recordV2.wrapper.Uuid;
+import com.alibaba.fastjson.JSONObject;
+
+public class BraceletStepAlone {
+    private Uuid deviceId;
+    private Long timestamp;
+    private String userName;
     private int netId;
     private String mac;
     private String date;
     private int sec;
     private int runtime;
     private int step;
-    private String stepsInHour="[]";
+    private String stepsInHour;
     private String dateString;
     private String status;
     private Long createTime;
     private Long updateTime;
+
+    public BraceletStepAlone(BraceletStep braceletStep) {
+        this.deviceId = braceletStep.getDeviceId();
+        this.timestamp = braceletStep.getTimestamp();
+        this.userName = braceletStep.getUserName();
+        this.netId = braceletStep.getNetId();
+        this.mac = braceletStep.getMac();
+        this.date = braceletStep.getDate();
+        this.sec = braceletStep.getSec();
+        this.runtime = braceletStep.getRuntime();
+        this.step = braceletStep.getStep();
+        this.stepsInHour = braceletStep.getStepsInHour();
+        this.dateString = braceletStep.getDateString();
+        this.status = braceletStep.getStatus();
+        this.createTime = braceletStep.getCreateTime();
+        this.updateTime = braceletStep.getUpdateTime();
+    }
+
+    public BraceletStepAlone() {
+    }
+
+    public Uuid getDeviceId() {
+        return deviceId;
+    }
+
+    public void setDeviceId(Uuid deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public Long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public int getNetId() {
         return netId;
@@ -101,5 +150,9 @@ public class BraceletStep extends GeneralMeasurement {
 
     public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String toJSONString() {
+        return JSONObject.toJSONString(this);
     }
 }

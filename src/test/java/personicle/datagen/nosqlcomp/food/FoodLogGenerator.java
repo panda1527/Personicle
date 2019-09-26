@@ -13,17 +13,15 @@ import java.util.Random;
 import java.util.UUID;
 
 public class FoodLogGenerator {
-    private static int measureCount = 100000;//0000;
+    private static int measureCount = 1000000;//0000;
 
-    private static int deviceCount = 10000;//0000;
+    private static int deviceCount = 100000;//0000;
 
-    private static final int subEventPer = 10;
+    private static int informationCount = 100000;//00000;
 
-    private static int informationCount = 1000000;//00000;
+    private static final int attributesPerMeasurement = 5;
 
-    private static final int attributePerEvent = 5;
-
-    private static int gran = measureCount / deviceCount;
+    private static int gran = 10;
 
     private static final double minY = 30.0;
 
@@ -57,11 +55,9 @@ public class FoodLogGenerator {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length >= 3) {
+        if (args.length >= 1) {
             measureCount = Integer.parseInt(args[0]);
-            deviceCount = Integer.parseInt(args[1]);
-            informationCount = Integer.parseInt(args[2]);
-            gran = measureCount / deviceCount;
+            deviceCount=measureCount/gran;
         }
         genFoodsAndUsers();
         List<UUID> deviceSet = new ArrayList<>();
@@ -74,11 +70,11 @@ public class FoodLogGenerator {
         }
 // GeneralMeasurement
 
-        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./BigFoodLog.adm"));
-        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./FoodLogAlone.adm"));
-        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./GeneralMeasurement.adm"));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigFoodLog.adm"));
+        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/FoodLog_alone.adm"));
+        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/FoodLog_general.adm"));
         for (UUID device : deviceSet) {
-            String userName=users.get(rand.nextInt(users.size()));
+            String userName = users.get(rand.nextInt(users.size()));
             double minx = minX + rand.nextDouble() * 0.5;
             double maxx = minx + rand.nextDouble() * 0.25;
             double miny = minY + rand.nextDouble() * 0.5;
@@ -91,34 +87,35 @@ public class FoodLogGenerator {
             }
             LocalDateTime begin = baseTime.plusSeconds(second);
             for (int i = 0; i < gran; i++) {
-                FoodLog foodLog = new FoodLog();
+                FoodLog BigLog = new FoodLog();
                 double x = minx + i * delx;
                 double y = miny + i * dely;
-                foodLog.setDeviceId(new Uuid(device));
-                foodLog.setUserName(userName);
-                foodLog.setFoodName(foods.get(rand.nextInt(foods.size())));
-                foodLog.setTotal_calories(randompos.nextDouble() * 1000);
-                foodLog.setWeight(randompos.nextDouble() * 300);
-                begin=begin.plusSeconds(2);
-                foodLog.setTimestamp(begin.toInstant(ZoneOffset.of("+8")).toEpochMilli());
-                foodLog.setStartAt(new DateTime(begin));
-                foodLog.setEndAt(new DateTime(begin.plusSeconds(10)));
-                foodLog.setLongitude(x);
-                foodLog.setLatitude(y);
-                foodLog.setPreference_star(randomnum.nextInt(10));
-                foodLog.setMeasureId(new Uuid(UUID.randomUUID()));
-                foodLog.setCategory("unknown");
-                foodLog.setDescription(foodLog.getUserName()+" ate "+foodLog.getWeight()+"g "+foodLog.getFoodName());
+                BigLog.setDeviceId(new Uuid(device));
+                BigLog.setUserName(userName);
+                BigLog.setFoodName(foods.get(rand.nextInt(foods.size())));
+                BigLog.setTotal_calories(randompos.nextDouble() * 1000);
+                BigLog.setWeight(randompos.nextDouble() * 300);
+                begin = begin.plusSeconds(2);
+                BigLog.setTimestamp(begin.toInstant(ZoneOffset.of("+8")).toEpochMilli());
+                BigLog.setStartAt(new DateTime(begin));
+                BigLog.setEndAt(new DateTime(begin.plusSeconds(10)));
+                BigLog.setLongitude(x);
+                BigLog.setLatitude(y);
+                BigLog.setPreference_star(randomnum.nextInt(10));
+                BigLog.setMeasureId(new Uuid(UUID.randomUUID()));
+                BigLog.setCategory("unknown");
+                BigLog.setDescription(BigLog.getUserName() + " ate " + BigLog.getWeight() + "g " + BigLog.getFoodName());
+                BigLog.setComments(BigLog.getDescription());
                 List<Uuid> attribute = new ArrayList<>();
-                for (int j = 0; j < attributePerEvent; j++) {
+                for (int j = 0; j < attributesPerMeasurement; j++) {
                     attribute.add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
                 }
-                foodLog.setAttribute(attribute);
+                BigLog.setAttribute(attribute);
                 //System.out.println(event.toJSONString());
-                GeneralMeasurement gm=new GeneralMeasurement(foodLog);
-                FoodLogAlone fla=new FoodLogAlone(foodLog);
-                bw1.write(foodLog.toJSONString() + "\n");
-                bw2.write(fla.toJSONString() + "\n");
+                GeneralMeasurement gm = new GeneralMeasurement(BigLog);
+                FoodLogAlone alone = new FoodLogAlone(BigLog);
+                bw1.write(BigLog.toJSONString() + "\n");
+                bw2.write(alone.toJSONString() + "\n");
                 bw3.write(gm.toJSONString() + "\n");
             }
         }

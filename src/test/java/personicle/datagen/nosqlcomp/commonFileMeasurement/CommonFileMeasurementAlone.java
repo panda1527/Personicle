@@ -1,11 +1,9 @@
-package personicle.datagen.nosqlcomp.commonFileMeasure;
+package personicle.datagen.nosqlcomp.commonFileMeasurement;
 
 import asterix.recordV2.wrapper.Uuid;
 import com.alibaba.fastjson.JSONObject;
-import personicle.datagen.nosqlcomp.sensoring.Spatial3DPoint;
-import personicle.datagen.nosqlcomp.sensoring.sensoringCP.SensoringCP;
 
-public class CommonFileMeasureAlone {
+public class CommonFileMeasurementAlone {
     private Uuid deviceId;
     private Long timestamp;
     private String userName;
@@ -13,7 +11,7 @@ public class CommonFileMeasureAlone {
     private String filepath;
     private String comments;
 
-    public CommonFileMeasureAlone(CommonFileMeasure p) {
+    public CommonFileMeasurementAlone(CommonFileMeasurement p) {
         this.deviceId = p.getDeviceId();
         this.timestamp = p.getTimestamp();
         this.userName = p.getUserName();
@@ -22,7 +20,7 @@ public class CommonFileMeasureAlone {
         this.comments = p.getComments();
     }
 
-    public CommonFileMeasureAlone() {
+    public CommonFileMeasurementAlone() {
     }
 
     public Uuid getDeviceId() {

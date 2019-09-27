@@ -15,9 +15,9 @@ import java.util.Random;
 import java.util.UUID;
 
 public class BraceletSleepGenerator {
-    private static int measureCount = 1000000;//0000;
+    private static int measureCount = 1000;//0000;
 
-    private static int deviceCount = 100000;//0000;
+    private static int deviceCount = 100;//0000;
 
     private static int informationCount = 100000;//00000;
 
@@ -100,7 +100,7 @@ public class BraceletSleepGenerator {
                 BigLog.setAttribute(attribute);
 
                 // unique
-
+                BigLog.setDate(new DateTime(begin).toString());
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);
                 BraceletSleepAlone alone = new BraceletSleepAlone(BigLog);

@@ -15,9 +15,9 @@ import java.util.Random;
 import java.util.UUID;
 
 public class BraceletECGListGenerator {
-    private static int measureCount = 1000000;//0000;
+    private static int measureCount = 1000;//0000;
 
-    private static int deviceCount = 100000;//0000;
+    private static int deviceCount = 100;//0000;
 
     private static int informationCount = 100000;//00000;
 
@@ -91,6 +91,7 @@ public class BraceletECGListGenerator {
                 BigLog.setStartAt(new DateTime(begin));
                 BigLog.setEndAt(new DateTime(begin.plusSeconds(10)));
                 BigLog.setMeasureId(new Uuid(UUID.randomUUID()));
+                BigLog.setId(new Uuid(UUID.randomUUID()));
                 BigLog.setCategory("unknown");
                 BigLog.setDescription("userName:"+BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
                 List<Uuid> attribute = new ArrayList<>();

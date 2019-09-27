@@ -18,7 +18,7 @@ CREATE TYPE BraceletRawListType AS OPEN {
   dateString: string?,
   status: string?,
   createTime: bigint?,
-  updateTime: bigint
+  updateTime: bigint?
 };
 
 CREATE DATASET BraceletRawList(BraceletRawListType) PRIMARY KEY  deviceId, timestamp;

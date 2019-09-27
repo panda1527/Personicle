@@ -5,7 +5,7 @@ DROP DATASET BraceletECGList IF EXISTS;
 DROP TYPE BraceletECGListType IF EXISTS;
 
 CREATE TYPE BraceletECGListType AS OPEN {
-  deviceId: string,
+  deviceId: UUID,
   timestamp: bigint,
   id: UUID,
   netId: int?,

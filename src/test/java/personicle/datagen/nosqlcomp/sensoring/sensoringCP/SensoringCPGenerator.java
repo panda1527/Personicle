@@ -16,9 +16,9 @@ import java.util.Random;
 import java.util.UUID;
 
 public class SensoringCPGenerator {
-    private static int measureCount = 1000000;//0000;
+    private static int measureCount = 1000;//0000;
 
-    private static int deviceCount = 100000;//0000;
+    private static int deviceCount = 100;//0000;
 
     private static int informationCount = 100000;//00000;
 

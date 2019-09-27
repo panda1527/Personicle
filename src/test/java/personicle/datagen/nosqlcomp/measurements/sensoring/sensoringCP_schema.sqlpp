@@ -13,7 +13,7 @@ CREATE TYPE Spatial3DPoint AS {
 };
 
 CREATE TYPE SensoringCPType AS OPEN {
-  deviceId: string,  --primary key string for user, will be changed to uuid later
+  deviceId: UUID,  --primary key string for user, will be changed to uuid later
   timestamp: bigint, --primary key timestamp for observation
   userName: string?,
   accelerometer: [Spatial3DPoint],

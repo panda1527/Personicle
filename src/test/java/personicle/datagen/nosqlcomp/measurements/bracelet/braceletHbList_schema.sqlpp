@@ -5,7 +5,7 @@ DROP DATASET BraceletHbList IF EXISTS;
 DROP TYPE BraceletHbListType IF EXISTS;
 
 CREATE TYPE BraceletHbListType AS OPEN {
-  deviceId: string,
+  deviceId: UUID,
   timestamp: bigint,
   netId: int?,
   userName: string?,

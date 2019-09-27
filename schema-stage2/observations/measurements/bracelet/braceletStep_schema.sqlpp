@@ -18,7 +18,7 @@ CREATE TYPE BraceletStepType AS OPEN {
   dateString: string?,
   status: string?,
   createTime: bigint?,
-  updateTime: bigint
+  updateTime: bigint?
 };
 
 CREATE DATASET BraceletStep(BraceletStepType) PRIMARY KEY deviceId, timestamp;

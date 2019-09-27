@@ -5,7 +5,7 @@ DROP DATASET BraceletDailyHeartRateBloodPressure IF EXISTS;
 DROP TYPE BraceletDailyHeartRateBloodPressureType IF EXISTS;
 
 CREATE TYPE BraceletDailyHeartRateBloodPressureType AS OPEN {
-  deviceId: string,
+  deviceId: UUID,
   timestamp: bigint,
   netId: int?,
   userName: string?,

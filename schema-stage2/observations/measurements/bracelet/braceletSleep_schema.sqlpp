@@ -20,7 +20,7 @@ CREATE TYPE BraceletSleepType AS OPEN {
   dateString: string?,
   status: string?,
   createTime: bigint?,
-  updateTime: bigint
+  updateTime: bigint?
 };
 
 CREATE DATASET BraceletSleep(BraceletSleepType) PRIMARY KEY deviceId, timestamp;

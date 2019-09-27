@@ -10,8 +10,8 @@ public class BraceletSleepAlone {
     private int netId;
     private String mac;
     private String date;
-    private Long startTime;
-    private Long endTime;
+    private Long startTime=0L;
+    private Long endTime=0L;
     private int runMin;
     private int restlessMin;
     private int deepMin;

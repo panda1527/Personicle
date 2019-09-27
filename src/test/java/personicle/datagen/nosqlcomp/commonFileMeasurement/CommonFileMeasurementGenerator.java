@@ -1,10 +1,8 @@
-package personicle.datagen.nosqlcomp.bracelet.braceletStep;
+package personicle.datagen.nosqlcomp.commonFileMeasurement;
 
 import asterix.recordV2.wrapper.DateTime;
 import asterix.recordV2.wrapper.Uuid;
 import personicle.datagen.nosqlcomp.GeneralMeasurement;
-import personicle.datagen.nosqlcomp.bracelet.braceletSleep.BraceletSleep;
-import personicle.datagen.nosqlcomp.bracelet.braceletSleep.BraceletSleepAlone;
 
 import java.io.*;
 import java.time.LocalDateTime;
@@ -14,24 +12,16 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public class BraceletSleepGenerator {
-    private static int measureCount = 1000000;//0000;
+public class CommonFileMeasurementGenerator {
+    private static int measureCount = 1000;//0000;
 
-    private static int deviceCount = 100000;//0000;
+    private static int deviceCount = 100;//0000;
 
-    private static int informationCount = 100000;//00000;
+    private static int informationCount = 100;//00000;
 
-    private static final int attributesPerMeasurement = 5;
+    private static final int attributePerEvent = 5;
 
     private static int gran = 10;
-
-    private static final double minY = 30.0;
-
-    private static final double maxY = 31.0;
-
-    private static final double minX = 117;
-
-    private static final double maxX = 118;
 
     private static Random rand = new Random();
 
@@ -45,13 +35,12 @@ public class BraceletSleepGenerator {
 
     public static List<String> users = new ArrayList<>();
 
-    private static void genFoodsAndUsers() throws IOException {
+    private static void genUsers() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("./resources/food_samples/raw.dat"));
         String line;
         while ((line = br.readLine()) != null) {
             String[] fields = line.split(" ");
             users.add(fields[1]);
-            foods.add(fields[3]);
         }
         br.close();
     }
@@ -59,21 +48,27 @@ public class BraceletSleepGenerator {
     public static void main(String[] args) throws IOException {
         if (args.length >= 1) {
             measureCount = Integer.parseInt(args[0]);
+            gran = measureCount / deviceCount;
             deviceCount=measureCount/gran;
         }
-        genFoodsAndUsers();
+        genUsers();
         List<UUID> deviceSet = new ArrayList<>();
         for (int i = 0; i < deviceCount; i++) {
             deviceSet.add(UUID.randomUUID());
         }
+        List<String> file_types = new ArrayList<>();
+        file_types.add("video");
+        file_types.add("soundtrack");
+        file_types.add("picture");
+        file_types.add("paper");
         List<UUID> AttriSet = new ArrayList<>();
         for (int i = 0; i < informationCount; i++) {
             AttriSet.add(UUID.randomUUID());
         }
 
-        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigBraceletStep.adm"));
-        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/BraceletStep_alone.adm"));
-        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/BraceletStep_general.adm"));
+        BufferedWriter bw1 = new BufferedWriter(new FileWriter("./example/BigCommonFileMeasurement.adm"));
+        BufferedWriter bw2 = new BufferedWriter(new FileWriter("./example/CommonFileMeasurement_alone.adm"));
+        BufferedWriter bw3 = new BufferedWriter(new FileWriter("./example/CommonFileMeasurement_general.adm"));
         for (UUID device : deviceSet) {
             String userName = users.get(rand.nextInt(users.size()));
             int second = rand.nextInt(2 * 365 * 24 * 60 * 60);
@@ -81,29 +76,30 @@ public class BraceletSleepGenerator {
                 second++;
             }
             LocalDateTime begin = baseTime.plusSeconds(second);
+
             for (int i = 0; i < gran; i++) {
-                BraceletStep BigLog = new BraceletStep();
-                // general
+                CommonFileMeasurement BigLog = new CommonFileMeasurement();
                 BigLog.setDeviceId(new Uuid(device));
                 BigLog.setUserName(userName);
                 begin = begin.plusSeconds(2);
+//                System.out.println(begin.toInstant(ZoneOffset.of("+8")).toEpochMilli());
                 BigLog.setTimestamp(begin.toInstant(ZoneOffset.of("+8")).toEpochMilli());
                 BigLog.setStartAt(new DateTime(begin));
                 BigLog.setEndAt(new DateTime(begin.plusSeconds(10)));
                 BigLog.setMeasureId(new Uuid(UUID.randomUUID()));
                 BigLog.setCategory("unknown");
-                BigLog.setDescription("userName:"+BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
+                BigLog.setFile_category(file_types.get(rand.nextInt(file_types.size())));
+                BigLog.setDescription(BigLog.getUserName() + " has " + BigLog.getFile_category() + " file ");
+                BigLog.setComments(BigLog.getDescription());
+                BigLog.setFilepath("---");
                 List<Uuid> attribute = new ArrayList<>();
-                for (int j = 0; j < attributesPerMeasurement; j++) {
+                for (int j = 0; j < attributePerEvent; j++) {
                     attribute.add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
                 }
                 BigLog.setAttribute(attribute);
-
-                // unique
-
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);
-                BraceletStepAlone alone = new BraceletStepAlone(BigLog);
+                CommonFileMeasurementAlone alone = new CommonFileMeasurementAlone(BigLog);
                 bw1.write(BigLog.toJSONString() + "\n");
                 bw2.write(alone.toJSONString() + "\n");
                 bw3.write(gm.toJSONString() + "\n");

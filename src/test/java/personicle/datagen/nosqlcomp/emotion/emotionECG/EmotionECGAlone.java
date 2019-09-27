@@ -21,6 +21,14 @@ public class EmotionECGAlone {
     public EmotionECGAlone() {
     }
 
+    public Double[] getPayload() {
+        return payload;
+    }
+
+    public void setPayload(Double[] payload) {
+        this.payload = payload;
+    }
+
     public Uuid getDeviceId() {
         return deviceId;
     }

@@ -33,6 +33,7 @@ public class Total_Generator {
                     BraceletSleepGenerator.Generator(mc);
                     BraceletECGListGenerator.Generator(mc);
                     BraceletHbListGenerator.Generator(mc);
+                    System.out.println("完成1/5");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -46,6 +47,7 @@ public class Total_Generator {
                     BraceletHeartRateBloodPressureGenerator.Generator(mc);
                     BraceletRawListGenerator.Generator(mc);
                     BraceletStepGenerator.Generator(mc);
+                    System.out.println("完成1/5");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -59,6 +61,7 @@ public class Total_Generator {
                     SensoringCPGenerator.Generator(mc);
                     SensoringGPSGenerator.Generator(mc);
                     SensoringUSGenerator.Generator(mc);
+                    System.out.println("完成1/5");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -73,6 +76,7 @@ public class Total_Generator {
                     SensoringMIGenerator.Generator(mc);
                     EmotionECGGenerator.Generator(mc);
                     EmotionTextGenerator.Generator(mc);
+                    System.out.println("完成1/5");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -81,5 +85,6 @@ public class Total_Generator {
         }).start();
         CommonFileMeasurementGenerator.Generator(mc);
         FoodLogGenerator.Generator(mc);
+        System.out.println("完成1/5");
     }
 }

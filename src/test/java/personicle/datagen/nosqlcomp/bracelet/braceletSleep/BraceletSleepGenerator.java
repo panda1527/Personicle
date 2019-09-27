@@ -57,10 +57,11 @@ public class BraceletSleepGenerator {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length >= 1) {
-            measureCount = Integer.parseInt(args[0]);
-            deviceCount=measureCount/gran;
-        }
+        Generator(1000);
+    }
+    public static void Generator (int mc)throws IOException{
+        measureCount=mc;
+        deviceCount=measureCount/gran;
         genFoodsAndUsers();
         List<UUID> deviceSet = new ArrayList<>();
         for (int i = 0; i < deviceCount; i++) {

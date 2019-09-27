@@ -57,10 +57,13 @@ public class EmotionECGGenerator {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length >= 1) {
-            measureCount = Integer.parseInt(args[0]);
-            deviceCount=measureCount/gran;
-        }
+        Generator(1000);
+    }
+
+    public static void Generator(int mc) throws IOException {
+        measureCount = mc;
+        deviceCount = measureCount / gran;
+
         genFoodsAndUsers();
         List<UUID> deviceSet = new ArrayList<>();
         for (int i = 0; i < deviceCount; i++) {
@@ -93,7 +96,7 @@ public class EmotionECGGenerator {
                 BigLog.setEndAt(new DateTime(begin.plusSeconds(10)));
                 BigLog.setMeasureId(new Uuid(UUID.randomUUID()));
                 BigLog.setCategory("unknown");
-                BigLog.setDescription("userName:"+BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
+                BigLog.setDescription("userName:" + BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
                 List<Uuid> attribute = new ArrayList<>();
                 for (int j = 0; j < attributesPerMeasurement; j++) {
                     attribute.add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
@@ -102,7 +105,7 @@ public class EmotionECGGenerator {
 
                 // unique
                 BigLog.setComments("deviceId: " + BigLog.getDeviceId() + ",timeStamp: " + BigLog.getTimestamp());
-                BigLog.setPayload(new Double[]{1.0,2.0});
+                BigLog.setPayload(new Double[]{1.0, 2.0});
 
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);

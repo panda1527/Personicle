@@ -57,10 +57,13 @@ public class SensoringUSGenerator {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length >= 1) {
-            measureCount = Integer.parseInt(args[0]);
-            deviceCount=measureCount/gran;
-        }
+        Generator(1000);
+    }
+
+    public static void Generator(int mc) throws IOException {
+        measureCount = mc;
+        deviceCount = measureCount / gran;
+
         genFoodsAndUsers();
         List<UUID> deviceSet = new ArrayList<>();
         for (int i = 0; i < deviceCount; i++) {
@@ -89,8 +92,8 @@ public class SensoringUSGenerator {
             LocalDateTime begin = baseTime.plusSeconds(second);
             for (int i = 0; i < gran; i++) {
                 SensoringGPS BigLog = new SensoringGPS();
-                double x = minx + i * delx*2;
-                double y = miny + i * dely*2;
+                double x = minx + i * delx * 2;
+                double y = miny + i * dely * 2;
                 // general
                 BigLog.setDeviceId(new Uuid(device));
                 BigLog.setUserName(userName);
@@ -100,7 +103,7 @@ public class SensoringUSGenerator {
                 BigLog.setEndAt(new DateTime(begin.plusSeconds(10)));
                 BigLog.setMeasureId(new Uuid(UUID.randomUUID()));
                 BigLog.setCategory("unknown");
-                BigLog.setDescription("userName:"+BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
+                BigLog.setDescription("userName:" + BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
                 List<Uuid> attribute = new ArrayList<>();
                 for (int j = 0; j < attributesPerMeasurement; j++) {
                     attribute.add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
@@ -110,8 +113,8 @@ public class SensoringUSGenerator {
                 // unique
                 BigLog.setComments("deviceId: " + BigLog.getDeviceId() + ",timeStamp: " + BigLog.getTimestamp());
                 BigLog.setWeatherInfo(rand.nextInt(100));
-                BigLog.setLatitude(new Double[]{x,x+0.1});
-                BigLog.setLongitude(new Double[]{y,y+0.1});
+                BigLog.setLatitude(new Double[]{x, x + 0.1});
+                BigLog.setLongitude(new Double[]{y, y + 0.1});
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);
                 SensoringGPSAlone alone = new SensoringGPSAlone(BigLog);

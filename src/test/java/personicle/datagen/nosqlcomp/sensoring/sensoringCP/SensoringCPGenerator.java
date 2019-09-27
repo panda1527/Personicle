@@ -58,10 +58,13 @@ public class SensoringCPGenerator {
     }
 
     public static void main(String[] args) throws IOException {
-        if (args.length >= 1) {
-            measureCount = Integer.parseInt(args[0]);
-            deviceCount=measureCount/gran;
-        }
+        Generator(1000);
+    }
+
+    public static void Generator(int mc) throws IOException {
+        measureCount = mc;
+        deviceCount = measureCount / gran;
+
         genFoodsAndUsers();
         List<UUID> deviceSet = new ArrayList<>();
         for (int i = 0; i < deviceCount; i++) {
@@ -93,7 +96,7 @@ public class SensoringCPGenerator {
                 BigLog.setEndAt(new DateTime(begin.plusSeconds(10)));
                 BigLog.setMeasureId(new Uuid(UUID.randomUUID()));
                 BigLog.setCategory("unknown");
-                BigLog.setDescription("userName:"+BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
+                BigLog.setDescription("userName:" + BigLog.getUserName() + "deviceId: " + BigLog.getDeviceId() + ",measureId: " + BigLog.getMeasureId());
                 List<Uuid> attribute = new ArrayList<>();
                 for (int j = 0; j < attributesPerMeasurement; j++) {
                     attribute.add(new Uuid(AttriSet.get(rand.nextInt(AttriSet.size()))));
@@ -101,13 +104,13 @@ public class SensoringCPGenerator {
                 BigLog.setAttribute(attribute);
 
                 // unique
-                Spatial3DPoint p1=new Spatial3DPoint(1.0,1.0,1.0);
-                Spatial3DPoint p2=new Spatial3DPoint(2.0,2.0,2.0);
-                Spatial3DPoint p3=new Spatial3DPoint(3.0,3.0,3.0);
-                Spatial3DPoint p4=new Spatial3DPoint(4.0,4.0,4.0);
+                Spatial3DPoint p1 = new Spatial3DPoint(1.0, 1.0, 1.0);
+                Spatial3DPoint p2 = new Spatial3DPoint(2.0, 2.0, 2.0);
+                Spatial3DPoint p3 = new Spatial3DPoint(3.0, 3.0, 3.0);
+                Spatial3DPoint p4 = new Spatial3DPoint(4.0, 4.0, 4.0);
                 BigLog.setComments("deviceId: " + BigLog.getDeviceId() + ",timeStamp: " + BigLog.getTimestamp());
-                BigLog.setAccelerometer(new Spatial3DPoint[] {p1,p2});
-                BigLog.setGyroscope(new Spatial3DPoint[] {p3,p4});
+                BigLog.setAccelerometer(new Spatial3DPoint[]{p1, p2});
+                BigLog.setGyroscope(new Spatial3DPoint[]{p3, p4});
 
                 //System.out.println(event.toJSONString());
                 GeneralMeasurement gm = new GeneralMeasurement(BigLog);

@@ -29,13 +29,13 @@ public class SensoringGPSGenerator {
 
     private static int gran = 10;
 
-    private static final double minY = 30.0;
+    private static final double minY = 22.24;
 
-    private static final double maxY = 31.0;
+    private static final double maxY = 22.52;
 
-    private static final double minX = 117;
+    private static final double minX = 113.46;
 
-    private static final double maxX = 118;
+    private static final double maxX = 114.37;
 
     private static Random rand = new Random();
 

@@ -13,9 +13,9 @@ import java.util.Random;
 import java.util.UUID;
 
 public class CommonFileMeasurementGenerator {
-    private static int measureCount = 1000;//0000;
+    private static int measureCount = 4000;//0000;
 
-    private static int deviceCount = 100;//0000;
+    private static int deviceCount = 400;//0000;
 
     private static int informationCount = 100;//00000;
 
@@ -63,7 +63,7 @@ public class CommonFileMeasurementGenerator {
         file_types.add("video");
         file_types.add("soundtrack");
         file_types.add("picture");
-        file_types.add("paper");
+        file_types.add("text");
         List<UUID> AttriSet = new ArrayList<>();
         for (int i = 0; i < informationCount; i++) {
             AttriSet.add(UUID.randomUUID());

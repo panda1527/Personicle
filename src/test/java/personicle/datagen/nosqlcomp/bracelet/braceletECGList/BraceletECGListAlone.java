@@ -5,10 +5,10 @@ import com.alibaba.fastjson.JSONObject;
 import personicle.datagen.nosqlcomp.GeneralMeasurement;
 
 public class BraceletECGListAlone {
-    private Uuid deviceId;
+    private String deviceId;
     private Long timestamp;
     private String userName;
-    private Uuid id;
+    private String id;
     private int netId;
     private String mac;
     private int ecg;
@@ -54,12 +54,13 @@ public class BraceletECGListAlone {
     public BraceletECGListAlone() {
     }
 
-    public Uuid getDeviceId() {
+    public String getDeviceId() {
         return deviceId;
     }
 
-    public void setDeviceId(Uuid deviceId) {
-        this.deviceId = deviceId;
+    public void setDeviceId(Uuid uuid) {
+        this.deviceId = uuid.getUuid().toString().replace("-", "");
+        this.deviceId = this.deviceId.trim();
     }
 
     public Long getTimestamp() {
@@ -78,12 +79,13 @@ public class BraceletECGListAlone {
         this.userName = userName;
     }
 
-    public Uuid getId() {
+    public String getId() {
         return id;
     }
 
     public void setId(Uuid id) {
-        this.id = id;
+        this.id = id.getUuid().toString().replace("-", "");
+        this.id = this.id.trim();
     }
 
     public int getNetId() {

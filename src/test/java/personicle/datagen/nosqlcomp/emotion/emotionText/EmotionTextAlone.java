@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import personicle.datagen.nosqlcomp.emotion.emotionECG.EmotionECG;
 
 public class EmotionTextAlone {
-    private Uuid deviceId;
+    private String deviceId;
     private Long timestamp;
     private String userName;
     private String message;
@@ -22,12 +22,13 @@ public class EmotionTextAlone {
     public EmotionTextAlone() {
     }
 
-    public Uuid getDeviceId() {
+    public String getDeviceId() {
         return deviceId;
     }
 
     public void setDeviceId(Uuid deviceId) {
-        this.deviceId = deviceId;
+        this.deviceId = deviceId.getUuid().toString().replace("-", "");
+        this.deviceId = this.deviceId.trim();
     }
 
     public Long getTimestamp() {

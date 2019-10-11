@@ -5,7 +5,7 @@ import asterix.recordV2.wrapper.Uuid;
 import com.alibaba.fastjson.JSONObject;
 
 public class BraceletStepAlone {
-    private Uuid deviceId;
+    private String deviceId;
     private Long timestamp;
     private String userName;
     private int netId;
@@ -40,12 +40,13 @@ public class BraceletStepAlone {
     public BraceletStepAlone() {
     }
 
-    public Uuid getDeviceId() {
+    public String getDeviceId() {
         return deviceId;
     }
 
     public void setDeviceId(Uuid deviceId) {
-        this.deviceId = deviceId;
+        this.deviceId = deviceId.getUuid().toString().replace("-", "");
+        this.deviceId = this.deviceId.trim();
     }
 
     public Long getTimestamp() {

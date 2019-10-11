@@ -7,7 +7,7 @@ import personicle.datagen.nosqlcomp.sensoring.Spatial3DPoint;
 import java.util.UUID;
 
 public class BraceletECGList extends GeneralMeasurement {
-    private Uuid id;
+    private String id;
     private int netId;
     private String mac;
     private int ecg;
@@ -26,12 +26,13 @@ public class BraceletECGList extends GeneralMeasurement {
     private Long createTime;
     private Long updateTime;
 
-    public Uuid getId() {
+    public String getId() {
         return id;
     }
 
     public void setId(Uuid id) {
-        this.id = id;
+        this.id = id.getUuid().toString().replace("-", "");
+        this.id = this.id.trim();
     }
 
     public int getNetId() {

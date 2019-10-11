@@ -4,7 +4,7 @@ import asterix.recordV2.wrapper.Uuid;
 import com.alibaba.fastjson.JSONObject;
 
 public class EmotionECGAlone {
-    private Uuid deviceId;
+    private String deviceId;
     private Long timestamp;
     private String userName;
     private Double[] payload;
@@ -29,12 +29,13 @@ public class EmotionECGAlone {
         this.payload = payload;
     }
 
-    public Uuid getDeviceId() {
+    public String  getDeviceId() {
         return deviceId;
     }
 
-    public void setDeviceId(Uuid deviceId) {
-        this.deviceId = deviceId;
+    public void setDeviceId(Uuid uuid) {
+        this.deviceId = uuid.getUuid().toString().replace("-", "");
+        this.deviceId = this.deviceId.trim();
     }
 
     public String getUserName() {

@@ -6,9 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.List;
 
-public  class GeneralMeasurement {
-    private Uuid measureId;
-    private Uuid deviceId;
+public class GeneralMeasurement {
+    private String measureId;
+    private String deviceId;
     private Long timestamp;
     private String userName;
     private DateTime startAt;  //startAt: datetime,    --start of event
@@ -34,12 +34,13 @@ public  class GeneralMeasurement {
     public GeneralMeasurement() {
     }
 
-    public Uuid getDeviceId() {
+    public String getDeviceId() {
         return deviceId;
     }
 
-    public void setDeviceId(Uuid deviceId) {
-        this.deviceId = deviceId;
+    public void setDeviceId(Uuid uuid) {
+        this.deviceId = uuid.getUuid().toString().replace("-", "");
+        this.deviceId = this.deviceId.trim();
     }
 
     public String getUserName() {
@@ -74,12 +75,13 @@ public  class GeneralMeasurement {
         this.endAt = endAt;
     }
 
-    public Uuid getMeasureId() {
+    public String getMeasureId() {
         return measureId;
     }
 
-    public void setMeasureId(Uuid measureId) {
-        this.measureId = measureId;
+    public void setMeasureId(Uuid uuid) {
+        this.measureId = uuid.getUuid().toString().replace("-", "");
+        this.measureId = this.measureId.trim();
     }
 
     public String getCategory() {

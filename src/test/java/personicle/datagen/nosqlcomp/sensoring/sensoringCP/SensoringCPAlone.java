@@ -6,7 +6,7 @@ import personicle.datagen.nosqlcomp.emotion.emotionText.EmotionText;
 import personicle.datagen.nosqlcomp.sensoring.Spatial3DPoint;
 
 public class SensoringCPAlone {
-    private Uuid deviceId;
+    private String deviceId;
     private Long timestamp;
     private String userName;
     private Spatial3DPoint[] accelerometer;
@@ -24,12 +24,13 @@ public class SensoringCPAlone {
     public SensoringCPAlone() {
     }
 
-    public Uuid getDeviceId() {
+    public String getDeviceId() {
         return deviceId;
     }
 
     public void setDeviceId(Uuid deviceId) {
-        this.deviceId = deviceId;
+        this.deviceId = deviceId.getUuid().toString().replace("-", "");
+        this.deviceId = this.deviceId.trim();
     }
 
     public Long getTimestamp() {
